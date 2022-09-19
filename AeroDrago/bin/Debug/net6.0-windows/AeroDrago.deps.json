@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "AeroDrago/1.0.0": {
+        "dependencies": {
+          "Biblioteca": "1.0.0"
+        },
         "runtime": {
           "AeroDrago.dll": {}
+        }
+      },
+      "Biblioteca/1.0.0": {
+        "runtime": {
+          "Biblioteca.dll": {}
         }
       }
     }
   },
   "libraries": {
     "AeroDrago/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Biblioteca/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
