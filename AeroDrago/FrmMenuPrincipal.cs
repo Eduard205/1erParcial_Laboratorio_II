@@ -28,7 +28,7 @@ namespace AeroDrago
             FrmLogin FrmLogin = new FrmLogin();
             FrmLogin.Show();
             this.Hide();
-
+            
         }
 
     }
