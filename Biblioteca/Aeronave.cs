@@ -12,6 +12,7 @@ namespace Biblioteca
         private int cantidadAsientos;
         private int cantidadBaños;
         private int capacidadBodega;
+        private static List<Aeronave> listaAeronaves;
 
         public Aeronave(string matricula, int cantidadAsientos, int cantidadBaños, int capacidadBodega)
         {

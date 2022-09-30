@@ -34,62 +34,39 @@ namespace Biblioteca
         Miami 
     }
 
-    public class Vuelo
+    public abstract class Vuelo
     {
-        private string nroVuelo;
-        private EDestinoNacional origenNacional;
-        private EDestinoNacional destinoNacional;
-        private EDestinoInternacional destinoInternacional;
-        private string horaPartida;
-        private string horaLlegada;
-        private int duracionVuelo;
-        private List<Pasajero> listaPasajeros = new List<Pasajero>();
-        Random numRandom = new Random();
-
-        public string NroVuelo { get => nroVuelo; set => nroVuelo = value; }
-        public EDestinoNacional OrigenNacional { get => origenNacional; set => origenNacional = value; }
-        public EDestinoNacional DestinoNacional { get => destinoNacional; set => destinoNacional = value; }
-        public EDestinoInternacional DestinoInternacional { get => destinoInternacional; set => destinoInternacional = value; }
+        protected string nroVuelo;
+        protected string fechaIda;
+        protected string fechaVuelta;
+        protected string horaPartida;
+        protected string horaLlegada;
+        protected int duracionVuelo;
+        protected Random numRandom = new Random();
+        protected string idAeronave;
+  
+        public string NroVuelo
+        {
+            get => nroVuelo;
+            set => nroVuelo = value;
+        }
+        public string FechaIda { get => fechaIda; set => fechaIda = value; }
+        public string FechaVuelta { get => fechaVuelta; set => fechaVuelta = value; }
         public string HoraPartida { get => horaPartida; set => horaPartida = value; }
         public string HoraLlegada { get => horaLlegada; set => horaLlegada = value; }
         public int DuracionVuelo { get => duracionVuelo; set => duracionVuelo = value; }
-        public List<Pasajero> ListaPasajeros { get => listaPasajeros; set => listaPasajeros = value; }
-       
+        public string IdAeronave { get => idAeronave; set => idAeronave = value; }
 
-        private Vuelo()
+        protected Vuelo()
         {
             this.NroVuelo = $"AR{numRandom.Next(1000, 9999).ToString()}";
-            //this.horaPartida = RandomDiaHora().Hour.ToString();
-            //DateTime horaPartidaAux = Convert.ToDateTime(horaPartida);
-            //horaPartidaAux.AddHours(duracionVuelo);
-            //this.horaLlegada = horaPartidaAux.Hour.ToString();
-
-
-        }
-        public Vuelo(EDestinoNacional origenNacional, EDestinoNacional destinoNacional, List<Pasajero> listaPasajeros):this()
-        {
-            this.OrigenNacional = origenNacional;
-            this.DestinoNacional = destinoNacional;
-            listaPasajeros.AddRange(listaPasajeros);
-            this.DuracionVuelo = numRandom.Next(2, 4);
-
-            DateTime horaPartidaAux = RandomDiaHora();
-            this.HoraPartida = horaPartidaAux.Hour.ToString();
-            horaPartidaAux.AddHours(DuracionVuelo);
-            this.HoraLlegada = horaPartidaAux.Hour.ToString();
         }
 
-        public Vuelo(EDestinoNacional origenNacional, EDestinoInternacional destinoInternacional, List<Pasajero> listaPasajeros):this()
+        protected Vuelo(string fechaIda, string fechaVuelta, string idAeronave):this()
         {
-            this.OrigenNacional = origenNacional;
-            this.DestinoInternacional = destinoInternacional;
-            listaPasajeros.AddRange(listaPasajeros);
-            this.DuracionVuelo = numRandom.Next(8, 12);
-
-            DateTime horaPartidaAux = RandomDiaHora();
-            this.HoraPartida = horaPartidaAux.Hour.ToString();
-            horaPartidaAux.AddHours(DuracionVuelo);
-            this.HoraLlegada = horaPartidaAux.Hour.ToString();
+            this.FechaIda = fechaIda;
+            this.FechaVuelta = fechaVuelta;
+            this.IdAeronave = idAeronave;
         }
 
         public DateTime RandomDiaHora() 

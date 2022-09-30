@@ -33,6 +33,7 @@
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.labNombreOperador = new System.Windows.Forms.Label();
             this.dataGridVuelo = new System.Windows.Forms.DataGridView();
+            this.dtpFechaIda = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVuelo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,13 +78,31 @@
             // 
             // dataGridVuelo
             // 
+            this.dataGridVuelo.AllowUserToAddRows = false;
+            this.dataGridVuelo.AllowUserToDeleteRows = false;
+            this.dataGridVuelo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridVuelo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridVuelo.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridVuelo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridVuelo.Location = new System.Drawing.Point(175, 101);
+            this.dataGridVuelo.Location = new System.Drawing.Point(51, 96);
             this.dataGridVuelo.Name = "dataGridVuelo";
+            this.dataGridVuelo.ReadOnly = true;
+            this.dataGridVuelo.RowHeadersVisible = false;
             this.dataGridVuelo.RowTemplate.Height = 25;
-            this.dataGridVuelo.Size = new System.Drawing.Size(450, 210);
+            this.dataGridVuelo.Size = new System.Drawing.Size(694, 210);
             this.dataGridVuelo.TabIndex = 8;
             this.dataGridVuelo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridVuelo_CellContentClick);
+            // 
+            // dtpFechaIda
+            // 
+            this.dtpFechaIda.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaIda.Location = new System.Drawing.Point(26, 45);
+            this.dtpFechaIda.MinDate = new System.DateTime(2022, 9, 30, 0, 0, 0, 0);
+            this.dtpFechaIda.Name = "dtpFechaIda";
+            this.dtpFechaIda.Size = new System.Drawing.Size(90, 23);
+            this.dtpFechaIda.TabIndex = 10;
+            this.dtpFechaIda.ValueChanged += new System.EventHandler(this.dtpFechaIda_ValueChanged);
             // 
             // FrmMenuPrincipal
             // 
@@ -94,6 +113,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.dtpFechaIda);
             this.Controls.Add(this.dataGridVuelo);
             this.Controls.Add(this.labNombreOperador);
             this.Controls.Add(this.btnCerrarSesion);
@@ -115,5 +135,6 @@
         private Button btnCerrarSesion;
         private Label labNombreOperador;
         private DataGridView dataGridVuelo;
+        private DateTimePicker dtpFechaIda;
     }
 }
