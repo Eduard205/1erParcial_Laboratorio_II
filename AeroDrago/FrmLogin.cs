@@ -24,7 +24,7 @@ namespace AeroDrago
                     if (usuarioLogueado is not null)
                     {
                         MessageBox.Show($"Bienvenido a Aero Drago {usuarioLogueado.Nombre}");
-                        FrmMenuPrincipal menuPrincipal = new FrmMenuPrincipal();
+                        FrmMenuPrincipal menuPrincipal = new FrmMenuPrincipal(usuarioLogueado);
                         menuPrincipal.Show();
                         this.Hide();
                     }

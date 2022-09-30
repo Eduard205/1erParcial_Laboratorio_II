@@ -31,6 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenuPrincipal));
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
+            this.labNombreOperador = new System.Windows.Forms.Label();
+            this.dataGridVuelo = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridVuelo)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSalir
@@ -57,6 +60,31 @@
             this.btnCerrarSesion.UseVisualStyleBackColor = false;
             this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
+            // labNombreOperador
+            // 
+            this.labNombreOperador.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labNombreOperador.AutoSize = true;
+            this.labNombreOperador.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labNombreOperador.LiveSetting = System.Windows.Forms.Automation.AutomationLiveSetting.Assertive;
+            this.labNombreOperador.Location = new System.Drawing.Point(284, -1);
+            this.labNombreOperador.Name = "labNombreOperador";
+            this.labNombreOperador.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.labNombreOperador.Size = new System.Drawing.Size(120, 17);
+            this.labNombreOperador.TabIndex = 7;
+            this.labNombreOperador.Text = "Nombre Operador";
+            this.labNombreOperador.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // dataGridVuelo
+            // 
+            this.dataGridVuelo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridVuelo.Location = new System.Drawing.Point(175, 101);
+            this.dataGridVuelo.Name = "dataGridVuelo";
+            this.dataGridVuelo.RowTemplate.Height = 25;
+            this.dataGridVuelo.Size = new System.Drawing.Size(450, 210);
+            this.dataGridVuelo.TabIndex = 8;
+            this.dataGridVuelo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridVuelo_CellContentClick);
+            // 
             // FrmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -66,13 +94,18 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.dataGridVuelo);
+            this.Controls.Add(this.labNombreOperador);
             this.Controls.Add(this.btnCerrarSesion);
             this.Controls.Add(this.btnSalir);
             this.DoubleBuffered = true;
             this.Name = "FrmMenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Aero Drago > Menu Principal";
+            this.Load += new System.EventHandler(this.FrmMenuPrincipal_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridVuelo)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -80,5 +113,7 @@
 
         private Button btnSalir;
         private Button btnCerrarSesion;
+        private Label labNombreOperador;
+        private DataGridView dataGridVuelo;
     }
 }

@@ -6,29 +6,37 @@ using System.Threading.Tasks;
 
 namespace Biblioteca
 {
-    public static class Aeronave
+    public class Aeronave
     {
-        private static string matricula;
-        private static int cantidadAsientos;
-        private static int cantidadBaños;
-        private static int capacidadBodega;
+        private string matricula;
+        private int cantidadAsientos;
+        private int cantidadBaños;
+        private int capacidadBodega;
 
-        public static string Matricula
+        public Aeronave(string matricula, int cantidadAsientos, int cantidadBaños, int capacidadBodega)
+        {
+            this.matricula = matricula;
+            this.cantidadAsientos = cantidadAsientos;
+            this.cantidadBaños = cantidadBaños;
+            this.capacidadBodega = capacidadBodega;
+        }
+
+        public string Matricula
         {
             get { return matricula; }
             set { matricula = value; }
         }
-        public static int CantidadAsientos
+        public int CantidadAsientos
         {
             get { return cantidadAsientos; }
             set { cantidadAsientos = value; }
         }
-        public static int CantidadBaños
+        public int CantidadBaños
         {
             get { return cantidadBaños; }
             set { cantidadBaños = value; }
         }
-        public static int CapacidadBodega
+        public int CapacidadBodega
         {
             get { return capacidadBodega; }
             set { capacidadBodega = value; }
