@@ -38,3 +38,10 @@ C:\Users\eduar\OneDrive\Documentos\RepoParciales\Brito.Eduard.PrimerParcial\Aero
 C:\Users\eduar\OneDrive\Documentos\RepoParciales\Brito.Eduard.PrimerParcial\AeroDrago\bin\Debug\net6.0-windows\Biblioteca.dll
 C:\Users\eduar\OneDrive\Documentos\RepoParciales\Brito.Eduard.PrimerParcial\AeroDrago\bin\Debug\net6.0-windows\Biblioteca.pdb
 C:\Users\eduar\OneDrive\Documentos\RepoParciales\Brito.Eduard.PrimerParcial\AeroDrago\obj\Debug\net6.0-windows\AeroDrago.csproj.CopyComplete
+C:\Users\eduar\OneDrive\Documentos\RepoParciales\Brito.Eduard.PrimerParcial\AeroDrago\bin\Debug\net6.0-windows\NPOI.OOXML.dll
+C:\Users\eduar\OneDrive\Documentos\RepoParciales\Brito.Eduard.PrimerParcial\AeroDrago\bin\Debug\net6.0-windows\NPOI.OpenXml4Net.dll
+C:\Users\eduar\OneDrive\Documentos\RepoParciales\Brito.Eduard.PrimerParcial\AeroDrago\bin\Debug\net6.0-windows\NPOI.OpenXmlFormats.dll
+C:\Users\eduar\OneDrive\Documentos\RepoParciales\Brito.Eduard.PrimerParcial\AeroDrago\bin\Debug\net6.0-windows\NPOI.dll
+C:\Users\eduar\OneDrive\Documentos\RepoParciales\Brito.Eduard.PrimerParcial\AeroDrago\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
+C:\Users\eduar\OneDrive\Documentos\RepoParciales\Brito.Eduard.PrimerParcial\AeroDrago\bin\Debug\net6.0-windows\ICSharpCode.SharpZipLib.dll
+C:\Users\eduar\OneDrive\Documentos\RepoParciales\Brito.Eduard.PrimerParcial\AeroDrago\obj\Debug\net6.0-windows\AeroDrago.FrmAltaVuelo.resources

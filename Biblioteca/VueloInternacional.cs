@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NPOI.SS.Formula.Functions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,18 +7,19 @@ using System.Threading.Tasks;
 
 namespace Biblioteca
 {
-    public class VueloInternacional:Vuelo
+    public class VueloInternacional : Vuelo
     {
-        private EDestinoNacional origenNacional;
+        private EOrigenNacional origenNacional;
         private EDestinoInternacional destinoInternacional;
-        private List<Pasajero> listaPasajeros = new List<Pasajero>();
+        private List<Pasajero> listaPasajeros;
 
-
-        public EDestinoNacional OrigenNacional { get => origenNacional; set => origenNacional = value; }
+        public List<Pasajero> ListaPasajeros { get => listaPasajeros; set => listaPasajeros = value; }
+        public EOrigenNacional OrigenNacional { get => origenNacional; set => origenNacional = value; }
         public EDestinoInternacional DestinoInternacional { get => destinoInternacional; set => destinoInternacional = value; }
 
-        public VueloInternacional(string fechaIda, string fechaVuelta, EDestinoNacional origenNacional, EDestinoInternacional destinoInternacional,
-        string idAeronave, List<Pasajero> listaPasajeros) : base(fechaIda, fechaVuelta, idAeronave)
+        public VueloInternacional() { }
+        public VueloInternacional(string fechaPartida, EOrigenNacional origenNacional, EDestinoInternacional destinoInternacional,
+        string idAeronave, bool esInternacional, List<Pasajero> listaPasajeros) : base(fechaPartida, idAeronave, esInternacional)
         {
             this.OrigenNacional = origenNacional;
             this.DestinoInternacional = destinoInternacional;
@@ -30,5 +32,26 @@ namespace Biblioteca
             this.HoraLlegada = horaPartidaAux.Hour.ToString();
 
         }
+        public List<VueloInternacional> MostrarVuelos
+        {
+            get
+            {
+                List<VueloInternacional> listaAux = new List<VueloInternacional>();
+
+                if (DatosNegocio.ListaVuelos is not null)
+                {
+                    foreach (Vuelo item in DatosNegocio.ListaVuelos)
+                    {
+                        if (item.GetType() == typeof(VueloInternacional))
+                        {
+                            listaAux.Add((VueloInternacional)item);
+                        }
+                    }
+                }
+                return listaAux;
+            }
+        }
+
+        
     }
 }

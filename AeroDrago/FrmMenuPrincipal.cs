@@ -14,12 +14,15 @@ namespace AeroDrago
     public partial class FrmMenuPrincipal : Form
     {
         private List<Pasajero> listaPasajerosAux;
-        private string fecha;
+        private List<Vuelo> listaVuelos = new List<Vuelo>();
+        //private string fecha;
+        List<VueloInternacional> listaVuelosInternacional = new List<VueloInternacional>();
 
 
         public FrmMenuPrincipal()
         {
             InitializeComponent();
+            listaVuelos = DatosNegocio.ListaVuelos;
 
             //listaPasajerosAux = new List<Pasajero>()
             //{
@@ -34,59 +37,85 @@ namespace AeroDrago
   
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            FrmLogin FrmLogin = new FrmLogin();
+            FrmLogin.Show();
+            this.Hide();        
+        }
+
+        private void btnSalir_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void btnCerrarSesion_Click(object sender, EventArgs e)
-        {
-
-            FrmLogin FrmLogin = new FrmLogin();
-            FrmLogin.Show();
-            this.Hide();
-            
-        }
-
         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
         {
-
-
-            //List<Vuelo> listaVuelos = new List<Vuelo>();
-
-            //listaPasajerosAux = new List<Pasajero>()
-            //{
-            //    new Pasajero("Eduard", "Brito", 95645952, 31, EEquipaje.Bodega, true),
-            //    new Pasajero("Jose", "Perez", 95123456, 36, EEquipaje.Mano, false),
-            //};
-
-            fecha = dtpFechaIda.Value.ToShortDateString();
-
-            //Vuelo vuelo1 = new Vuelo(fecha,EDestinoNacional.BuenosAires, EDestinoInternacional.Roma, listaPasajerosAux);
-            //Vuelo vuelo2 = new Vuelo(fecha, EDestinoNacional.BuenosAires, EDestinoNacional.Tucuman, listaPasajerosAux);
-
-
-            //listaVuelos.Add(vuelo1);
-            //listaVuelos.Add(vuelo2);
-
-            dataGridVuelo.DataSource = null;
-            dataGridVuelo.DataSource = DatosNegocio.ListaVuelos;
-            //dataGridVuelo.DataSource = listaPasajerosAux;
-        }
-
-        private void dataGridVuelo_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-          
-
-        }
-
-        private void dtpFechaIda_ValueChanged(object sender, EventArgs e)
-        {
-      
-
             //fecha = dtpFechaIda.Value.ToShortDateString();
-            //dataGridVuelo.DataSource = null;
-            //dataGridVuelo.DataSource = listaVuelos;
+
+  
+            gboxVuelosNacionales.Visible = false;
+            gBoxVuelosInternacionales.Visible = false;
+            btnCerrar.Visible = false;
+            btnAltaVuelo.Visible = false;
+            //dtgVuelosInternacionales.Visible = true;
+            //dtgVuelosInternacionales.Visible = true;
+        }
+
+        private void dtgVuelosNacionales_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dtgVuelosInternacionales_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnMostrarVuelos_Click(object sender, EventArgs e)
+        {
+            dtgVuelosNacionales.DataSource = null;
+            dtgVuelosNacionales.DataSource = DatosNegocio.MostrarVuelosNacional;
+
+            dtgVuelosInternacionales.DataSource = null;
+            dtgVuelosInternacionales.DataSource = DatosNegocio.MostrarVuelosInternacional;
+
+            gboxVuelosNacionales.Visible = true;
+            gBoxVuelosInternacionales.Visible = true;
+            btnCerrar.Visible = true;
+            btnAltaVuelo.Visible = true;
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            gboxVuelosNacionales.Visible = false;
+            gBoxVuelosInternacionales.Visible = false;
+            btnCerrar.Visible = false;
+            btnAltaVuelo.Visible = false;
+        }
+
+        private void btnAltaVuelo_Click(object sender, EventArgs e)
+        {
+            FrmAltaVuelo frmAltaVuelo = new FrmAltaVuelo();
+            DialogResult result = frmAltaVuelo.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                ActualizarDatos();
+            }
+            else
+            {
+                MessageBox.Show("No se actualizo la lista de vuelos");
+            }
+        }
+
+        private void ActualizarDatos()
+        {
+            dtgVuelosNacionales.DataSource = null;
+            dtgVuelosNacionales.DataSource = DatosNegocio.MostrarVuelosNacional;
+
+            dtgVuelosInternacionales.DataSource = null;
+            dtgVuelosInternacionales.DataSource = DatosNegocio.MostrarVuelosInternacional;
         }
     }
 }

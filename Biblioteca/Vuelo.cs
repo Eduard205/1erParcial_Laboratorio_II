@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NPOI.SS.Formula.Functions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,13 @@ using System.Threading.Tasks;
 
 namespace Biblioteca
 {
-    public enum EDestinoNacional
+    public enum EOrigenNacional
     {
         BuenosAires,
+       
+    }
+    public enum EDestinoNacional
+    {
         SantaRosa,
         Bariloche,
         Corrientes,
@@ -37,38 +42,38 @@ namespace Biblioteca
     public abstract class Vuelo
     {
         protected string nroVuelo;
-        protected string fechaIda;
-        protected string fechaVuelta;
+        protected string fechaPartida;
         protected string horaPartida;
         protected string horaLlegada;
         protected int duracionVuelo;
         protected Random numRandom = new Random();
         protected string idAeronave;
-  
+        protected bool esInternacional;
+
         public string NroVuelo
         {
             get => nroVuelo;
             set => nroVuelo = value;
         }
-        public string FechaIda { get => fechaIda; set => fechaIda = value; }
-        public string FechaVuelta { get => fechaVuelta; set => fechaVuelta = value; }
+        public string FechaPartida { get => fechaPartida; set => fechaPartida = value; }
         public string HoraPartida { get => horaPartida; set => horaPartida = value; }
         public string HoraLlegada { get => horaLlegada; set => horaLlegada = value; }
         public int DuracionVuelo { get => duracionVuelo; set => duracionVuelo = value; }
         public string IdAeronave { get => idAeronave; set => idAeronave = value; }
+        public bool EsInternacional { get => esInternacional; set => esInternacional = value; }
 
         protected Vuelo()
         {
             this.NroVuelo = $"AR{numRandom.Next(1000, 9999).ToString()}";
         }
 
-        protected Vuelo(string fechaIda, string fechaVuelta, string idAeronave):this()
+        protected Vuelo(string fechaPartida, string idAeronave, bool esInternacional):this()
         {
-            this.FechaIda = fechaIda;
-            this.FechaVuelta = fechaVuelta;
+            this.FechaPartida = fechaPartida;
             this.IdAeronave = idAeronave;
+            this.EsInternacional = esInternacional;
         }
-
+      
         public DateTime RandomDiaHora() 
         { 
             DateTime inicio = new DateTime(2022, 9, 29, numRandom.Next(0, 24), 0, 0);

@@ -14,6 +14,7 @@ namespace Biblioteca
         private int capacidadBodega;
         private static List<Aeronave> listaAeronaves;
 
+        public Aeronave() { }
         public Aeronave(string matricula, int cantidadAsientos, int cantidadBaños, int capacidadBodega)
         {
             this.matricula = matricula;
@@ -41,6 +42,21 @@ namespace Biblioteca
         {
             get { return capacidadBodega; }
             set { capacidadBodega = value; }
+        }
+
+        public List<string> ListarMatriculas()
+        {
+            List<string> listaMatriculas = new List<string>();
+
+            if (DatosNegocio.ListaAeronaves is not null)
+            {
+                foreach (Aeronave item in DatosNegocio.ListaAeronaves)
+                {
+                    listaMatriculas.Add(item.Matricula);
+
+                }
+            }
+            return listaMatriculas;
         }
 
     }

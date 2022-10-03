@@ -13,7 +13,8 @@ namespace Biblioteca
         private static List<Vuelo> listaVuelos;
 
         public static List<Vuelo> ListaVuelos { get => listaVuelos; set => listaVuelos = value; }
-
+        public static List<Aeronave> ListaAeronaves { get => listaAeronaves; set => listaAeronaves = value; }
+        
         static DatosNegocio()
         {
             InstanciarUsuarios();
@@ -53,9 +54,9 @@ namespace Biblioteca
             return null;
         }
 
-        private static void InstanciarAeronaves() 
+        private static void InstanciarAeronaves()
         {
-            listaAeronaves = new List<Aeronave>()
+            ListaAeronaves = new List<Aeronave>()
             {
                 new Aeronave(matricula:"737600NA",cantidadAsientos:132,cantidadBaños:3,capacidadBodega:3742),
                 new Aeronave(matricula:"737700NA",cantidadAsientos:149,cantidadBaños:4,capacidadBodega:4235),
@@ -70,8 +71,8 @@ namespace Biblioteca
         {
             ListaVuelos = new List<Vuelo>()
             {
-                new VueloNacional(fechaIda:"25/10/2022",fechaVuelta:"30/10/2022", origenNacional:EDestinoNacional.BuenosAires, 
-                destinoNacional:EDestinoNacional.Salta, idAeronave:"737600NA",
+                new VueloNacional(fechaPartida:"25/10/2022", origenNacional:EOrigenNacional.BuenosAires,
+                destinoNacional:EDestinoNacional.Salta, idAeronave:"737600NA", false,
                 new List<Pasajero>()
                 {
                     new Pasajero("Eduard", "Brito", 95645952, 31, EEquipaje.Bodega, true),
@@ -80,8 +81,8 @@ namespace Biblioteca
                     new Pasajero("Carlos","Rodriguez", 29465852, 47, EEquipaje.Mano, true),
                 }),
 
-                new VueloInternacional(fechaIda:"15/10/2022",fechaVuelta:"25/10/2022", origenNacional:EDestinoNacional.BuenosAires, 
-                destinoInternacional:EDestinoInternacional.Acapulco, idAeronave:"777200IN",
+                new VueloInternacional(fechaPartida:"15/10/2022", origenNacional:EOrigenNacional.BuenosAires,
+                destinoInternacional:EDestinoInternacional.Acapulco, idAeronave:"777200IN", true,
                 new List<Pasajero>()
                 {
                     new Pasajero("Lucas", "Rodriguez", 35675345, 31, EEquipaje.Bodega, true),
@@ -91,6 +92,71 @@ namespace Biblioteca
                 })
             };
         }
+
+        public static List<VueloInternacional> MostrarVuelosInternacional
+        {
+            get 
+            {
+                VueloInternacional mostrar = new VueloInternacional();
+                return mostrar.MostrarVuelos; 
+            }
+        }
+        public static List<VueloNacional> MostrarVuelosNacional
+        {
+            get
+            {
+                VueloNacional mostrar = new VueloNacional();
+                return mostrar.MostrarVuelos;
+            }
+        }
+
+        public static List<string> MostrarIdAeronaveNacional
+        {
+            get
+            {
+                List<string> listaAux = new List<string>();
+                List<string> listaMatriculaNac = new List<string>();
+                Aeronave mostrar = new Aeronave();
+                listaAux = mostrar.ListarMatriculas();
+
+                if (listaAux is not null)
+                {
+                    foreach (string item in listaAux)
+                    {
+                        if (item.Contains("NA"))
+                        {
+                            listaMatriculaNac.Add(item);
+                        }
+                    }
+                }
+                return listaMatriculaNac;
+            }
+        }
+
+        public static List<string> MostrarIdAeronaveInternacional
+        {
+            get
+            {
+                List<string> listaAux = new List<string>();
+                List<string> listaMatriculaInt = new List<string>();
+                Aeronave mostrar = new Aeronave();
+                listaAux = mostrar.ListarMatriculas();
+
+                if(listaAux is not null)
+                {
+                    foreach (string item in listaAux)
+                    {
+                        if (item.Contains("IN"))
+                        {
+                            listaMatriculaInt.Add(item);
+                        }
+                    }
+                }
+                return listaMatriculaInt;
+            }
+        }
+
+
 
     }
 }
