@@ -33,11 +33,18 @@
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.labNombreOperador = new System.Windows.Forms.Label();
             this.dtgVuelosNacionales = new System.Windows.Forms.DataGridView();
-            this.dtpFechaIda = new System.Windows.Forms.DateTimePicker();
             this.gboxVuelosNacionales = new System.Windows.Forms.GroupBox();
             this.gBoxVenderPasajes = new System.Windows.Forms.GroupBox();
             this.gBoxDatosVuelo = new System.Windows.Forms.GroupBox();
+            this.dtgCargarPasajero = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gBoxVueloInternacional = new System.Windows.Forms.GroupBox();
+            this.btnCargarPasajeroInt = new System.Windows.Forms.Button();
             this.chklClasePremiumInt = new System.Windows.Forms.CheckedListBox();
             this.txtEdadInt = new System.Windows.Forms.TextBox();
             this.cboEquipajeInt = new System.Windows.Forms.ComboBox();
@@ -53,6 +60,7 @@
             this.labNombreInt = new System.Windows.Forms.Label();
             this.labNroVueloInt = new System.Windows.Forms.Label();
             this.gBoxVueloNacional = new System.Windows.Forms.GroupBox();
+            this.btnCargarPasajeroNac = new System.Windows.Forms.Button();
             this.chklClasePremiumNac = new System.Windows.Forms.CheckedListBox();
             this.txtEdadNac = new System.Windows.Forms.TextBox();
             this.cboEquipajeNac = new System.Windows.Forms.ComboBox();
@@ -78,6 +86,7 @@
             this.gboxVuelosNacionales.SuspendLayout();
             this.gBoxVenderPasajes.SuspendLayout();
             this.gBoxDatosVuelo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgCargarPasajero)).BeginInit();
             this.gBoxVueloInternacional.SuspendLayout();
             this.gBoxVueloNacional.SuspendLayout();
             this.gBoxVuelosInternacionales.SuspendLayout();
@@ -141,15 +150,6 @@
             this.dtgVuelosNacionales.TabIndex = 8;
             this.dtgVuelosNacionales.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgVuelosNacionales_CellContentClick);
             // 
-            // dtpFechaIda
-            // 
-            this.dtpFechaIda.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaIda.Location = new System.Drawing.Point(63, 463);
-            this.dtpFechaIda.MinDate = new System.DateTime(2022, 9, 30, 0, 0, 0, 0);
-            this.dtpFechaIda.Name = "dtpFechaIda";
-            this.dtpFechaIda.Size = new System.Drawing.Size(90, 23);
-            this.dtpFechaIda.TabIndex = 10;
-            // 
             // gboxVuelosNacionales
             // 
             this.gboxVuelosNacionales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -167,9 +167,9 @@
             // 
             this.gBoxVenderPasajes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.gBoxVenderPasajes.Controls.Add(this.gBoxDatosVuelo);
-            this.gBoxVenderPasajes.Location = new System.Drawing.Point(52, 22);
+            this.gBoxVenderPasajes.Location = new System.Drawing.Point(46, 22);
             this.gBoxVenderPasajes.Name = "gBoxVenderPasajes";
-            this.gBoxVenderPasajes.Size = new System.Drawing.Size(841, 310);
+            this.gBoxVenderPasajes.Size = new System.Drawing.Size(841, 392);
             this.gBoxVenderPasajes.TabIndex = 18;
             this.gBoxVenderPasajes.TabStop = false;
             this.gBoxVenderPasajes.Text = "Venta de Pasajes";
@@ -177,19 +177,77 @@
             // gBoxDatosVuelo
             // 
             this.gBoxDatosVuelo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.gBoxDatosVuelo.Controls.Add(this.dtgCargarPasajero);
             this.gBoxDatosVuelo.Controls.Add(this.gBoxVueloInternacional);
             this.gBoxDatosVuelo.Controls.Add(this.gBoxVueloNacional);
             this.gBoxDatosVuelo.Controls.Add(this.chklDestino);
             this.gBoxDatosVuelo.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.gBoxDatosVuelo.Location = new System.Drawing.Point(6, 20);
             this.gBoxDatosVuelo.Name = "gBoxDatosVuelo";
-            this.gBoxDatosVuelo.Size = new System.Drawing.Size(835, 272);
+            this.gBoxDatosVuelo.Size = new System.Drawing.Size(835, 352);
             this.gBoxDatosVuelo.TabIndex = 13;
             this.gBoxDatosVuelo.TabStop = false;
             this.gBoxDatosVuelo.Text = "Datos del Vuelo";
             // 
+            // dtgCargarPasajero
+            // 
+            this.dtgCargarPasajero.AllowUserToAddRows = false;
+            this.dtgCargarPasajero.AllowUserToOrderColumns = true;
+            this.dtgCargarPasajero.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtgCargarPasajero.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgCargarPasajero.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dtgCargarPasajero.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtgCargarPasajero.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dtgCargarPasajero.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgCargarPasajero.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.Column1,
+            this.Column2,
+            this.Column3});
+            this.dtgCargarPasajero.Location = new System.Drawing.Point(304, 17);
+            this.dtgCargarPasajero.Name = "dtgCargarPasajero";
+            this.dtgCargarPasajero.RowHeadersVisible = false;
+            this.dtgCargarPasajero.RowTemplate.Height = 25;
+            this.dtgCargarPasajero.Size = new System.Drawing.Size(525, 187);
+            this.dtgCargarPasajero.TabIndex = 15;
+            this.dtgCargarPasajero.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgCargarPasajero_CellContentClick);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "DNI";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Apellido";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Edad";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Equipaje";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "EsPremium";
+            this.Column3.Name = "Column3";
+            // 
             // gBoxVueloInternacional
             // 
+            this.gBoxVueloInternacional.Controls.Add(this.btnCargarPasajeroInt);
             this.gBoxVueloInternacional.Controls.Add(this.chklClasePremiumInt);
             this.gBoxVueloInternacional.Controls.Add(this.txtEdadInt);
             this.gBoxVueloInternacional.Controls.Add(this.cboEquipajeInt);
@@ -204,12 +262,24 @@
             this.gBoxVueloInternacional.Controls.Add(this.labApellidoInt);
             this.gBoxVueloInternacional.Controls.Add(this.labNombreInt);
             this.gBoxVueloInternacional.Controls.Add(this.labNroVueloInt);
-            this.gBoxVueloInternacional.Location = new System.Drawing.Point(438, 21);
+            this.gBoxVueloInternacional.Location = new System.Drawing.Point(0, 83);
             this.gBoxVueloInternacional.Name = "gBoxVueloInternacional";
-            this.gBoxVueloInternacional.Size = new System.Drawing.Size(293, 230);
+            this.gBoxVueloInternacional.Size = new System.Drawing.Size(293, 257);
             this.gBoxVueloInternacional.TabIndex = 14;
             this.gBoxVueloInternacional.TabStop = false;
             this.gBoxVueloInternacional.Text = "Vuelo Internacional";
+            // 
+            // btnCargarPasajeroInt
+            // 
+            this.btnCargarPasajeroInt.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnCargarPasajeroInt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCargarPasajeroInt.Location = new System.Drawing.Point(6, 223);
+            this.btnCargarPasajeroInt.Name = "btnCargarPasajeroInt";
+            this.btnCargarPasajeroInt.Size = new System.Drawing.Size(125, 34);
+            this.btnCargarPasajeroInt.TabIndex = 39;
+            this.btnCargarPasajeroInt.Text = "Cargar Pasajero";
+            this.btnCargarPasajeroInt.UseVisualStyleBackColor = false;
+            this.btnCargarPasajeroInt.Click += new System.EventHandler(this.btnCargarPasajeroInt_Click);
             // 
             // chklClasePremiumInt
             // 
@@ -218,14 +288,14 @@
             this.chklClasePremiumInt.Items.AddRange(new object[] {
             "SI",
             "NO"});
-            this.chklClasePremiumInt.Location = new System.Drawing.Point(123, 182);
+            this.chklClasePremiumInt.Location = new System.Drawing.Point(123, 178);
             this.chklClasePremiumInt.Name = "chklClasePremiumInt";
             this.chklClasePremiumInt.Size = new System.Drawing.Size(46, 36);
             this.chklClasePremiumInt.TabIndex = 38;
             // 
             // txtEdadInt
             // 
-            this.txtEdadInt.Location = new System.Drawing.Point(123, 127);
+            this.txtEdadInt.Location = new System.Drawing.Point(123, 124);
             this.txtEdadInt.Name = "txtEdadInt";
             this.txtEdadInt.Size = new System.Drawing.Size(163, 21);
             this.txtEdadInt.TabIndex = 37;
@@ -233,21 +303,21 @@
             // cboEquipajeInt
             // 
             this.cboEquipajeInt.FormattingEnabled = true;
-            this.cboEquipajeInt.Location = new System.Drawing.Point(123, 153);
+            this.cboEquipajeInt.Location = new System.Drawing.Point(123, 150);
             this.cboEquipajeInt.Name = "cboEquipajeInt";
             this.cboEquipajeInt.Size = new System.Drawing.Size(163, 23);
             this.cboEquipajeInt.TabIndex = 34;
             // 
             // txtDniInt
             // 
-            this.txtDniInt.Location = new System.Drawing.Point(123, 101);
+            this.txtDniInt.Location = new System.Drawing.Point(123, 97);
             this.txtDniInt.Name = "txtDniInt";
             this.txtDniInt.Size = new System.Drawing.Size(163, 21);
             this.txtDniInt.TabIndex = 36;
             // 
             // txtApellidoInt
             // 
-            this.txtApellidoInt.Location = new System.Drawing.Point(123, 75);
+            this.txtApellidoInt.Location = new System.Drawing.Point(123, 70);
             this.txtApellidoInt.Name = "txtApellidoInt";
             this.txtApellidoInt.Size = new System.Drawing.Size(163, 21);
             this.txtApellidoInt.TabIndex = 35;
@@ -257,7 +327,7 @@
             this.labEquipajeInt.AutoSize = true;
             this.labEquipajeInt.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labEquipajeInt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labEquipajeInt.Location = new System.Drawing.Point(6, 156);
+            this.labEquipajeInt.Location = new System.Drawing.Point(6, 151);
             this.labEquipajeInt.Name = "labEquipajeInt";
             this.labEquipajeInt.Size = new System.Drawing.Size(69, 18);
             this.labEquipajeInt.TabIndex = 30;
@@ -265,7 +335,7 @@
             // 
             // txtNombreInt
             // 
-            this.txtNombreInt.Location = new System.Drawing.Point(123, 50);
+            this.txtNombreInt.Location = new System.Drawing.Point(123, 44);
             this.txtNombreInt.Name = "txtNombreInt";
             this.txtNombreInt.Size = new System.Drawing.Size(163, 21);
             this.txtNombreInt.TabIndex = 32;
@@ -273,7 +343,7 @@
             // cboNroVueloInt
             // 
             this.cboNroVueloInt.FormattingEnabled = true;
-            this.cboNroVueloInt.Location = new System.Drawing.Point(123, 23);
+            this.cboNroVueloInt.Location = new System.Drawing.Point(123, 17);
             this.cboNroVueloInt.Name = "cboNroVueloInt";
             this.cboNroVueloInt.Size = new System.Drawing.Size(163, 23);
             this.cboNroVueloInt.TabIndex = 31;
@@ -283,7 +353,7 @@
             this.labClasePremiumInt.AutoSize = true;
             this.labClasePremiumInt.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labClasePremiumInt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labClasePremiumInt.Location = new System.Drawing.Point(6, 181);
+            this.labClasePremiumInt.Location = new System.Drawing.Point(6, 178);
             this.labClasePremiumInt.Name = "labClasePremiumInt";
             this.labClasePremiumInt.Size = new System.Drawing.Size(110, 18);
             this.labClasePremiumInt.TabIndex = 33;
@@ -294,7 +364,7 @@
             this.labEdadInt.AutoSize = true;
             this.labEdadInt.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labEdadInt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labEdadInt.Location = new System.Drawing.Point(6, 131);
+            this.labEdadInt.Location = new System.Drawing.Point(6, 125);
             this.labEdadInt.Name = "labEdadInt";
             this.labEdadInt.Size = new System.Drawing.Size(45, 18);
             this.labEdadInt.TabIndex = 29;
@@ -305,7 +375,7 @@
             this.labDniInt.AutoSize = true;
             this.labDniInt.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labDniInt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labDniInt.Location = new System.Drawing.Point(6, 104);
+            this.labDniInt.Location = new System.Drawing.Point(6, 99);
             this.labDniInt.Name = "labDniInt";
             this.labDniInt.Size = new System.Drawing.Size(35, 18);
             this.labDniInt.TabIndex = 27;
@@ -316,7 +386,7 @@
             this.labApellidoInt.AutoSize = true;
             this.labApellidoInt.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labApellidoInt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labApellidoInt.Location = new System.Drawing.Point(6, 77);
+            this.labApellidoInt.Location = new System.Drawing.Point(6, 73);
             this.labApellidoInt.Name = "labApellidoInt";
             this.labApellidoInt.Size = new System.Drawing.Size(66, 18);
             this.labApellidoInt.TabIndex = 26;
@@ -327,7 +397,7 @@
             this.labNombreInt.AutoSize = true;
             this.labNombreInt.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labNombreInt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labNombreInt.Location = new System.Drawing.Point(6, 51);
+            this.labNombreInt.Location = new System.Drawing.Point(6, 46);
             this.labNombreInt.Name = "labNombreInt";
             this.labNombreInt.Size = new System.Drawing.Size(63, 18);
             this.labNombreInt.TabIndex = 25;
@@ -338,7 +408,7 @@
             this.labNroVueloInt.AutoSize = true;
             this.labNroVueloInt.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labNroVueloInt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labNroVueloInt.Location = new System.Drawing.Point(6, 24);
+            this.labNroVueloInt.Location = new System.Drawing.Point(6, 20);
             this.labNroVueloInt.Name = "labNroVueloInt";
             this.labNroVueloInt.Size = new System.Drawing.Size(96, 18);
             this.labNroVueloInt.TabIndex = 24;
@@ -346,6 +416,7 @@
             // 
             // gBoxVueloNacional
             // 
+            this.gBoxVueloNacional.Controls.Add(this.btnCargarPasajeroNac);
             this.gBoxVueloNacional.Controls.Add(this.chklClasePremiumNac);
             this.gBoxVueloNacional.Controls.Add(this.txtEdadNac);
             this.gBoxVueloNacional.Controls.Add(this.cboEquipajeNac);
@@ -360,12 +431,24 @@
             this.gBoxVueloNacional.Controls.Add(this.labApellidoNac);
             this.gBoxVueloNacional.Controls.Add(this.labNombreNac);
             this.gBoxVueloNacional.Controls.Add(this.labNroVueloNac);
-            this.gBoxVueloNacional.Location = new System.Drawing.Point(121, 21);
+            this.gBoxVueloNacional.Location = new System.Drawing.Point(6, 63);
             this.gBoxVueloNacional.Name = "gBoxVueloNacional";
-            this.gBoxVueloNacional.Size = new System.Drawing.Size(293, 230);
+            this.gBoxVueloNacional.Size = new System.Drawing.Size(293, 256);
             this.gBoxVueloNacional.TabIndex = 13;
             this.gBoxVueloNacional.TabStop = false;
             this.gBoxVueloNacional.Text = "Vuelo Nacional";
+            // 
+            // btnCargarPasajeroNac
+            // 
+            this.btnCargarPasajeroNac.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnCargarPasajeroNac.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCargarPasajeroNac.Location = new System.Drawing.Point(6, 222);
+            this.btnCargarPasajeroNac.Name = "btnCargarPasajeroNac";
+            this.btnCargarPasajeroNac.Size = new System.Drawing.Size(125, 34);
+            this.btnCargarPasajeroNac.TabIndex = 25;
+            this.btnCargarPasajeroNac.Text = "Cargar Pasajero";
+            this.btnCargarPasajeroNac.UseVisualStyleBackColor = false;
+            this.btnCargarPasajeroNac.Click += new System.EventHandler(this.btnCargarPasajeroNac_Click);
             // 
             // chklClasePremiumNac
             // 
@@ -608,7 +691,6 @@
             this.Controls.Add(this.btnMostrarVuelos);
             this.Controls.Add(this.gBoxVuelosInternacionales);
             this.Controls.Add(this.gboxVuelosNacionales);
-            this.Controls.Add(this.dtpFechaIda);
             this.Controls.Add(this.labNombreOperador);
             this.Controls.Add(this.btnCerrarSesion);
             this.Controls.Add(this.btnSalir);
@@ -621,6 +703,7 @@
             this.gboxVuelosNacionales.ResumeLayout(false);
             this.gBoxVenderPasajes.ResumeLayout(false);
             this.gBoxDatosVuelo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgCargarPasajero)).EndInit();
             this.gBoxVueloInternacional.ResumeLayout(false);
             this.gBoxVueloInternacional.PerformLayout();
             this.gBoxVueloNacional.ResumeLayout(false);
@@ -638,7 +721,6 @@
         private Button btnCerrarSesion;
         private Label labNombreOperador;
         private DataGridView dtgVuelosNacionales;
-        private DateTimePicker dtpFechaIda;
         private GroupBox gboxVuelosNacionales;
         private GroupBox gBoxVuelosInternacionales;
         private DataGridView dtgVuelosInternacionales;
@@ -679,5 +761,14 @@
         private Label labNroVueloInt;
         private CheckedListBox chklClasePremiumInt;
         private CheckedListBox chklClasePremiumNac;
+        private Button btnCargarPasajeroInt;
+        private Button btnCargarPasajeroNac;
+        private DataGridView dtgCargarPasajero;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
     }
 }

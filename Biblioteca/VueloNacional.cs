@@ -10,7 +10,6 @@ namespace Biblioteca
     {
         private EOrigenNacional origenNacional;
         private EDestinoNacional destinoNacional;
-        //private List<Pasajero> listaPasajeros = new List<Pasajero>();
         private List<Pasajero> listaPasajeros;
 
 

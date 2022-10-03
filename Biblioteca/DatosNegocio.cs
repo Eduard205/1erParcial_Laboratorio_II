@@ -202,8 +202,10 @@ namespace Biblioteca
             }
         }
 
-
-
+        public static bool ValidarDni(int dni)
+        {
+            return dni > 10000000 && dni < 99999999;
+        }
 
     }
 }

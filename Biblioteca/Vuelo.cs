@@ -84,22 +84,7 @@ namespace Biblioteca
         }
 
         public abstract List<string> ListarNroVuelo();
-        //{
-        //    List<string> listaAux = new List<string>();
-
-        //    if (DatosNegocio.ListaVuelos is not null)
-        //    {
-        //        foreach (Vuelo item in DatosNegocio.ListaVuelos)
-        //        {
-        //            listaAux.Add(item.NroVuelo);
-        //        }
-        //    }
-        //    else
-        //    {
-        //        new Exception("Error en la lista de Vuelos");
-        //    }
-        //    return listaAux;
-        //}
+      
 
     }
 }
