@@ -81,7 +81,25 @@ namespace Biblioteca
             inicio.AddDays(numRandom.Next(rango)).AddHours(numRandom.Next(0, 24)).AddMinutes(numRandom.Next(0, 0)).AddSeconds(numRandom.Next(0, 0));
 
             return inicio;
-        }  
-   
+        }
+
+        public abstract List<string> ListarNroVuelo();
+        //{
+        //    List<string> listaAux = new List<string>();
+
+        //    if (DatosNegocio.ListaVuelos is not null)
+        //    {
+        //        foreach (Vuelo item in DatosNegocio.ListaVuelos)
+        //        {
+        //            listaAux.Add(item.NroVuelo);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        new Exception("Error en la lista de Vuelos");
+        //    }
+        //    return listaAux;
+        //}
+
     }
 }

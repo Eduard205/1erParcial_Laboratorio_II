@@ -155,6 +155,53 @@ namespace Biblioteca
                 return listaMatriculaInt;
             }
         }
+        public static List<string> ListarNroVuelosNacional
+        {
+            get
+            {
+                List<string> listaAux = new List<string>();
+                List<string> listaAuxNroVueloNacional = new List<string>();
+                VueloNacional listar = new VueloNacional();
+                listaAuxNroVueloNacional = listar.ListarNroVuelo();
+
+                if (listaAux is not null && listaAuxNroVueloNacional is not null)
+                {
+                    foreach (string item in listaAuxNroVueloNacional)
+                    {
+                            listaAux.Add(item);
+                    }
+                }
+                else
+                {
+                    new Exception("Error en la lista de Nro de Vuelos");
+                }
+                return listaAux;
+            }
+        }
+        public static List<string> ListarNroVuelosInternacional
+        {
+            get
+            {
+                List<string> listaAux = new List<string>();
+                List<string> listaAuxNroVuelointernacional = new List<string>();
+                VueloInternacional listar = new VueloInternacional();
+                listaAuxNroVuelointernacional = listar.ListarNroVuelo();
+
+                if (listaAux is not null && listaAuxNroVuelointernacional is not null)
+                {
+                    foreach (string item in listaAuxNroVuelointernacional)
+                    {
+                        listaAux.Add(item);
+                    }
+                }
+                else
+                {
+                    new Exception("Error en la lista de Nro de Vuelos");
+                }
+                return listaAux;
+            }
+        }
+
 
 
 

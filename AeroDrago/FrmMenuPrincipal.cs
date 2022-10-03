@@ -13,10 +13,10 @@ namespace AeroDrago
 {
     public partial class FrmMenuPrincipal : Form
     {
-        private List<Pasajero> listaPasajerosAux;
+        //private List<Pasajero> listaPasajerosAux;
         private List<Vuelo> listaVuelos = new List<Vuelo>();
         //private string fecha;
-        List<VueloInternacional> listaVuelosInternacional = new List<VueloInternacional>();
+        //List<VueloInternacional> listaVuelosInternacional = new List<VueloInternacional>();
 
 
         public FrmMenuPrincipal()
@@ -58,6 +58,20 @@ namespace AeroDrago
             gBoxVuelosInternacionales.Visible = false;
             btnCerrar.Visible = false;
             btnAltaVuelo.Visible = false;
+            gBoxVenderPasajes.Visible = false;
+            gBoxVueloNacional.Visible = false;
+            gBoxVueloInternacional.Visible = false;
+
+            cboEquipajeNac.DataSource = Enum.GetValues(typeof(EEquipaje));
+            cboEquipajeInt.DataSource = Enum.GetValues(typeof(EEquipaje));
+            cboNroVueloInt.DataSource = DatosNegocio.ListarNroVuelosInternacional;
+            cboNroVueloNac.DataSource = DatosNegocio.ListarNroVuelosNacional;
+
+
+            cboEquipajeNac.SelectedItem = null;
+            cboEquipajeInt.SelectedItem = null;
+            cboNroVueloInt.SelectedItem = null;
+            cboNroVueloNac.SelectedItem = null;
             //dtgVuelosInternacionales.Visible = true;
             //dtgVuelosInternacionales.Visible = true;
         }
@@ -116,6 +130,29 @@ namespace AeroDrago
 
             dtgVuelosInternacionales.DataSource = null;
             dtgVuelosInternacionales.DataSource = DatosNegocio.MostrarVuelosInternacional;
+        }
+
+        private void btnVenderPasajes_Click(object sender, EventArgs e)
+        {
+            gBoxVenderPasajes.Visible = true;
+        }
+
+        private void chklDestino_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectorDestino = chklDestino.SelectedIndex;
+
+            if (selectorDestino == 0)
+            {
+                //Es Nacional
+                gBoxVueloNacional.Visible = true;
+                gBoxVueloInternacional.Visible = false;
+            }
+            else
+            {
+                //Es Internacional
+                gBoxVueloInternacional.Visible = true;
+                gBoxVueloNacional.Visible = false;
+            }
         }
     }
 }
