@@ -12,11 +12,10 @@ Se desarrollo una aplicación de escritorio en lenguaje de C# para gestionar la 
 
 ![image](https://user-images.githubusercontent.com/60559234/193750014-5a176f4d-99b8-4296-be27-135c6669153e.png)
 
-Cuenta con un menú principal donde se encuentran las siguientes funcionalidades:
-
 *[Características de la aplicación y demostración](#Características-de-la-aplicación-y-demostración)
+Cuenta con un menú principal donde se encuentran las siguientes funcionalidades:
 Cerrar Sesión: Cierra la sesión del usuario logueado y vuelve al menú de logueo.
-Salir: Cierra la aplicación
+Salir: Cierra la aplicación.
 Mostrar Vuelos: Permite mostrar el listado de vuelos y a su vez poder dar de alta un vuelo.
 Vender Pasajes: Permite cargar pasajeros a un vuelo activo y gestionar la venta del pasaje.
 
