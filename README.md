@@ -30,6 +30,9 @@ Vender Pasajes: Permite cargar pasajeros a un vuelo activo y gestionar la venta 
 ![image](https://user-images.githubusercontent.com/60559234/193748238-f629ebf3-49dc-4f8a-ae41-01e9c50c8d26.png)
 ![image](https://user-images.githubusercontent.com/60559234/193748572-68565c24-f6dd-4de2-ad11-c4b88f9bed2e.png)
 
+*[Diagrama de Clases](#diagrama-de-clases):
+
+![image](https://user-images.githubusercontent.com/60559234/193754542-a4686267-39e8-4b3c-9c8e-7a4211838184.png)
 
 
 
