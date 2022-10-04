@@ -34,5 +34,14 @@ Vender Pasajes: Permite cargar pasajeros a un vuelo activo y gestionar la venta 
 
 ![image](https://user-images.githubusercontent.com/60559234/193754542-a4686267-39e8-4b3c-9c8e-7a4211838184.png)
 
+*[Justificación Técnica](#Justificación-Técnica):
 
+  * Herencia: se aplica en la clase Vuelo (clase base) con las clases VueloNacional (clase derivada) y VueloInternacional (clase derivaba).
+  * Sobrecarga de constructores y métodos: En la clase Aeronave, Vuelo, VueloNacional, VueloInternacional.
+  * Propiedades: En las clases Aeronave, Vuelo, Producto, Usuario, VueloNacional, VueloInternacional.
+  * Colecciones: En la clase DatosNegocio.
+  * Enumerados: En la clase Vuelo y Pasajero.
+  * Formularios modal: En los Formularios Login y AltaVuelo con el de MenuPrincipal.
+  * Clases estáticas: En la clase DatosNegocio
+  * Polimorfismo (clases abstractas, métodos abstractos): En la clase abstracta Vuelo y en las clases VueloNacional y VueloInternacional (derivadas).
 
