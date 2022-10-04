@@ -9,7 +9,7 @@ Soy un desarrollador de aplicaciones de escritorio, siendo especialista en el de
 *[Descripción del proyecto](#descripción-del-proyecto)
 Se desarrollo una aplicación de escritorio en lenguaje de C# para gestionar la carga de vuelos y venta de pasajes de la Aerolínea AeroDrago. Parea usarla se debe loguear con algunos de los usuarios precargados, a modo de prueba pueden loguearse con el usuario: 1 password: 1.
 
-![image](https://user-images.githubusercontent.com/60559234/193746583-972880a5-9ee9-445a-848b-f0fd8522c688.png)
+![image](https://user-images.githubusercontent.com/60559234/193750014-5a176f4d-99b8-4296-be27-135c6669153e.png)
 
 Cuenta con un menú principal donde se encuentran las siguientes funcionalidades:
 Cerrar Sesión: Cierra la sesión del usuario logueado y vuelve al menú de logueo.
