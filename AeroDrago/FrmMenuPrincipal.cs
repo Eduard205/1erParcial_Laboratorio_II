@@ -234,5 +234,9 @@ namespace AeroDrago
                 throw new Exception("Fallo al agregar al Pasajero");
             }
         }
+        private void btnCerrarVentaPasajes_Click(object sender, EventArgs e)
+        {
+            gBoxVenderPasajes.Visible = false;
+        }
     }
 }

@@ -82,6 +82,7 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnAltaVuelo = new System.Windows.Forms.Button();
             this.btnVenderPasajes = new System.Windows.Forms.Button();
+            this.btnCerrarVentaPasajes = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgVuelosNacionales)).BeginInit();
             this.gboxVuelosNacionales.SuspendLayout();
             this.gBoxVenderPasajes.SuspendLayout();
@@ -176,6 +177,7 @@
             // gBoxDatosVuelo
             // 
             this.gBoxDatosVuelo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.gBoxDatosVuelo.Controls.Add(this.btnCerrarVentaPasajes);
             this.gBoxDatosVuelo.Controls.Add(this.dtgCargarPasajero);
             this.gBoxDatosVuelo.Controls.Add(this.gBoxVueloInternacional);
             this.gBoxDatosVuelo.Controls.Add(this.gBoxVueloNacional);
@@ -672,6 +674,18 @@
             this.btnVenderPasajes.UseVisualStyleBackColor = false;
             this.btnVenderPasajes.Click += new System.EventHandler(this.btnVenderPasajes_Click);
             // 
+            // btnCerrarVentaPasajes
+            // 
+            this.btnCerrarVentaPasajes.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnCerrarVentaPasajes.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCerrarVentaPasajes.Location = new System.Drawing.Point(704, 318);
+            this.btnCerrarVentaPasajes.Name = "btnCerrarVentaPasajes";
+            this.btnCerrarVentaPasajes.Size = new System.Drawing.Size(125, 34);
+            this.btnCerrarVentaPasajes.TabIndex = 16;
+            this.btnCerrarVentaPasajes.Text = "Cerrar";
+            this.btnCerrarVentaPasajes.UseVisualStyleBackColor = false;
+            this.btnCerrarVentaPasajes.Click += new System.EventHandler(this.btnCerrarVentaPasajes_Click);
+            // 
             // FrmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -767,5 +781,6 @@
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
+        private Button btnCerrarVentaPasajes;
     }
 }
