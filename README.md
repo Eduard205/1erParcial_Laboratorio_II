@@ -1,4 +1,4 @@
-# Nombre del proyectos: <em> # AeroDrago Airlines </em>
+# Nombre del proyecto: <em> # AeroDrago Airlines </em>
 
 # Nombre del Repositorio: Brito.Eduard.2D_PrimerParcial_Laboratorio.II
 
