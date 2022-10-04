@@ -14,7 +14,7 @@ namespace Biblioteca
 
         public static List<Vuelo> ListaVuelos { get => listaVuelos; set => listaVuelos = value; }
         public static List<Aeronave> ListaAeronaves { get => listaAeronaves; set => listaAeronaves = value; }
-        
+
         static DatosNegocio()
         {
             InstanciarUsuarios();
@@ -35,7 +35,6 @@ namespace Biblioteca
                 new Usuario(idUsuario:37123123,nombre:"Aegon Targaryen",password:"drago4"),
             };
         }
-
         /// <summary>
         /// Loguea al usuario
         /// </summary>
@@ -53,7 +52,9 @@ namespace Biblioteca
             }
             return null;
         }
-
+        /// <summary>
+        /// Instancia las Aeronaves disponibles
+        /// </summary>
         private static void InstanciarAeronaves()
         {
             ListaAeronaves = new List<Aeronave>()
@@ -67,6 +68,9 @@ namespace Biblioteca
                 new Aeronave(matricula:"7778XXIN",cantidadAsientos:350,cantidadBaños:7,capacidadBodega:9940),
             };
         }
+        /// <summary>
+        /// Instancia los vuelos Precargados
+        /// </summary>
         private static void InstanciarVuelos()
         {
             ListaVuelos = new List<Vuelo>()
@@ -92,7 +96,10 @@ namespace Biblioteca
                 })
             };
         }
-
+        /// <summary>
+        /// Muestra la lista de Vuelos Internacionales
+        /// </summary>
+        /// <returns>List<VueloInternacional></returns>
         public static List<VueloInternacional> MostrarVuelosInternacional
         {
             get 
@@ -101,6 +108,10 @@ namespace Biblioteca
                 return mostrar.MostrarVuelos; 
             }
         }
+        /// <summary>
+        /// Muestra la lista de Vuelos Nacionales
+        /// </summary>
+        /// <returns>List<VueloNacional></returns>
         public static List<VueloNacional> MostrarVuelosNacional
         {
             get
@@ -109,7 +120,10 @@ namespace Biblioteca
                 return mostrar.MostrarVuelos;
             }
         }
-
+        /// <summary>
+        /// Retorna una lista de las matriculas de Aeronaves Nacionales
+        /// </summary>
+        /// <returns>List<string></returns>
         public static List<string> MostrarIdAeronaveNacional
         {
             get
@@ -132,7 +146,10 @@ namespace Biblioteca
                 return listaMatriculaNac;
             }
         }
-
+        /// <summary>
+        /// Retorna una lista de las matriculas de Aeronaves Internacionales
+        /// </summary>
+        /// <returns>List<string></returns>
         public static List<string> MostrarIdAeronaveInternacional
         {
             get
@@ -155,6 +172,10 @@ namespace Biblioteca
                 return listaMatriculaInt;
             }
         }
+        /// <summary>
+        /// Retorna una lista de los NroVuelos de Aeronaves Nacionales
+        /// </summary>
+        /// <returns>List<string></returns>
         public static List<string> ListarNroVuelosNacional
         {
             get
@@ -178,6 +199,10 @@ namespace Biblioteca
                 return listaAux;
             }
         }
+        /// <summary>
+        /// Retorna una lista de los NroVuelos de Aeronaves Internacionales
+        /// </summary>
+        /// <returns>List<string></returns>
         public static List<string> ListarNroVuelosInternacional
         {
             get
@@ -201,7 +226,11 @@ namespace Biblioteca
                 return listaAux;
             }
         }
-
+        /// <summary>
+        /// Valida que el dni este en el rango establecido
+        /// </summary>
+        /// <param name="dni"></param>
+        /// <returns>Retorna un bool, true si el dni esta en el rango</returns>
         public static bool ValidarDni(int dni)
         {
             return dni > 10000000 && dni < 99999999;

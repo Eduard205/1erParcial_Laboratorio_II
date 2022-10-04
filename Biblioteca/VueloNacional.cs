@@ -12,7 +12,6 @@ namespace Biblioteca
         private EDestinoNacional destinoNacional;
         private List<Pasajero> listaPasajeros;
 
-
         public List<Pasajero> ListaPasajeros { get => listaPasajeros; set => listaPasajeros = value; }
         public EOrigenNacional OrigenNacional { get => origenNacional; set => origenNacional = value; }
         public EDestinoNacional DestinoNacional
@@ -36,6 +35,11 @@ namespace Biblioteca
             horaPartidaAux = horaPartidaAux.AddHours(Convert.ToDouble(duracionVuelo));
             this.HoraLlegada = horaPartidaAux.Hour.ToString();
         }
+
+        /// <summary>
+        /// Muestra la lista de vuelos Nacionales
+        /// </summary>
+        /// <returns>List<VueloNacional></returns>
         public List<VueloNacional> MostrarVuelos
         {
             get
@@ -55,7 +59,10 @@ namespace Biblioteca
                 return listaAux;
             }
         }
-
+        /// <summary>
+        /// Genrera una lista con los Nro de Vuelo Nacionales
+        /// </summary>
+        /// <returns>List<string></returns>
         public override List<string> ListarNroVuelo()
         {
             {

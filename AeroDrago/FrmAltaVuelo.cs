@@ -21,16 +21,6 @@ namespace AeroDrago
             InitializeComponent();
         }
 
-        private void gBoxDatosVuelo_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtpFechaPartidaNacional_ValueChanged(object sender, EventArgs e)
-        {
-            dtpFechaPartidaNacional.MinDate = DateTime.Today;
-        }
-
         private void chklDestino_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectorDestino = chklDestino.SelectedIndex;
@@ -48,12 +38,6 @@ namespace AeroDrago
                 gBoxVueloNacional.Visible = false;
             }
         }
-
-        private void gBoxVueloNacional_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void FrmAltaVuelo_Load(object sender, EventArgs e)
         {
             gBoxVueloNacional.Visible = false;
@@ -73,22 +57,6 @@ namespace AeroDrago
             cboIdAeronaveNac.SelectedItem = null;
             cboIdAeronaveInt.SelectedItem = null;
         }
-
-        private void cboOrigenNacional_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void cboDestinoNacional_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void labIdAeronaveNac_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnConfirmarAlta_Click(object sender, EventArgs e)
         {
             VueloNacional vueloNacional;
@@ -173,10 +141,8 @@ namespace AeroDrago
                 {
                     MessageBox.Show("Error, se deben completar TODOS los campos");
                 }
-            }
-           
+            } 
         }
-
         private void btnCancelarAlta_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;

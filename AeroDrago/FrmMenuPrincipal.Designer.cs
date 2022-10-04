@@ -148,7 +148,6 @@
             this.dtgVuelosNacionales.RowTemplate.Height = 25;
             this.dtgVuelosNacionales.Size = new System.Drawing.Size(900, 190);
             this.dtgVuelosNacionales.TabIndex = 8;
-            this.dtgVuelosNacionales.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgVuelosNacionales_CellContentClick);
             // 
             // gboxVuelosNacionales
             // 
@@ -213,7 +212,6 @@
             this.dtgCargarPasajero.RowTemplate.Height = 25;
             this.dtgCargarPasajero.Size = new System.Drawing.Size(525, 187);
             this.dtgCargarPasajero.TabIndex = 15;
-            this.dtgCargarPasajero.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgCargarPasajero_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -625,7 +623,6 @@
             this.dtgVuelosInternacionales.RowTemplate.Height = 25;
             this.dtgVuelosInternacionales.Size = new System.Drawing.Size(900, 187);
             this.dtgVuelosInternacionales.TabIndex = 8;
-            this.dtgVuelosInternacionales.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgVuelosInternacionales_CellContentClick);
             // 
             // btnMostrarVuelos
             // 

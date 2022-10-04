@@ -60,6 +60,5 @@ namespace Biblioteca
             get { return esPremium; }
             set { esPremium = value; }
         }
-
     }
 }

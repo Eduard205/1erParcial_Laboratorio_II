@@ -23,7 +23,6 @@ namespace Biblioteca
         {
             get { return idUsuario; }
         }
-
         public string Nombre
         {
             get { return nombre; }
@@ -38,6 +37,5 @@ namespace Biblioteca
         {
             return (!string.IsNullOrEmpty(datoIngresado) && datoIngresado.Trim() == password.Trim());
         }
-
     }
 }

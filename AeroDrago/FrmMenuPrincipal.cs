@@ -34,7 +34,6 @@ namespace AeroDrago
             InitializeComponent();
             listaVuelos = DatosNegocio.ListaVuelos;
         }
-
         public FrmMenuPrincipal(Usuario nombre) : this()
         {
             labNombreOperador.Text= $"Vendedor: {nombre.Nombre}, {DateTime.Now.ToString("dd-MM-yyyy")}";
@@ -46,12 +45,10 @@ namespace AeroDrago
             FrmLogin.Show();
             this.Hide();        
         }
-
         private void btnSalir_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
         {
             gboxVuelosNacionales.Visible = false;
@@ -72,17 +69,6 @@ namespace AeroDrago
             cboNroVueloInt.SelectedItem = null;
             cboNroVueloNac.SelectedItem = null;
         }
-
-        private void dtgVuelosNacionales_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dtgVuelosInternacionales_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void btnMostrarVuelos_Click(object sender, EventArgs e)
         {
             dtgVuelosNacionales.DataSource = null;
@@ -96,7 +82,6 @@ namespace AeroDrago
             btnCerrar.Visible = true;
             btnAltaVuelo.Visible = true;
         }
-
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             gboxVuelosNacionales.Visible = false;
@@ -104,7 +89,6 @@ namespace AeroDrago
             btnCerrar.Visible = false;
             btnAltaVuelo.Visible = false;
         }
-
         private void btnAltaVuelo_Click(object sender, EventArgs e)
         {
             FrmAltaVuelo frmAltaVuelo = new FrmAltaVuelo();
@@ -119,7 +103,6 @@ namespace AeroDrago
                 MessageBox.Show("No se actualizo la lista de vuelos");
             }
         }
-
         private void ActualizarDatos()
         {
             dtgVuelosNacionales.DataSource = null;
@@ -128,12 +111,10 @@ namespace AeroDrago
             dtgVuelosInternacionales.DataSource = null;
             dtgVuelosInternacionales.DataSource = DatosNegocio.MostrarVuelosInternacional;
         }
-
         private void btnVenderPasajes_Click(object sender, EventArgs e)
         {
             gBoxVenderPasajes.Visible = true;
         }
-
         private void chklDestino_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectorDestino = chklDestino.SelectedIndex;
@@ -151,7 +132,6 @@ namespace AeroDrago
                 gBoxVueloNacional.Visible = false;
             }
         }
-
         private void btnCargarPasajeroNac_Click(object sender, EventArgs e)
         {
             string patron = "[!\"·$%&/()=¿¡?'_:;,|@#€*+-.123456789]";
@@ -203,12 +183,6 @@ namespace AeroDrago
                 throw new Exception("Fallo al agregar al Pasajero");
             }
         }
-
-        private void dtgCargarPasajero_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void btnCargarPasajeroInt_Click(object sender, EventArgs e)
         {
             string patron = "[!\"·$%&/()=¿¡?'_:;,|@#€*+-.123456789]";
@@ -259,11 +233,6 @@ namespace AeroDrago
             {
                 throw new Exception("Fallo al agregar al Pasajero");
             }
-        }
-
-        private void gBoxVueloNacional_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }

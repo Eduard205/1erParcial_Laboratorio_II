@@ -66,14 +66,17 @@ namespace Biblioteca
         {
             this.NroVuelo = $"AR{numRandom.Next(1000, 9999).ToString()}";
         }
-
         protected Vuelo(string fechaPartida, string idAeronave, bool esInternacional):this()
         {
             this.FechaPartida = fechaPartida;
             this.IdAeronave = idAeronave;
             this.EsInternacional = esInternacional;
         }
-      
+
+        /// <summary>
+        /// Retorna un DateTime random
+        /// </summary>
+        /// <returns></returns>
         public DateTime RandomDiaHora() 
         { 
             DateTime inicio = new DateTime(2022, 9, 29, numRandom.Next(0, 24), 0, 0);
@@ -82,9 +85,10 @@ namespace Biblioteca
 
             return inicio;
         }
-
+        /// <summary>
+        /// Genrera una lista con los Nro de Vuelo, es sobreescrito por las clases derivadas
+        /// </summary>
+        /// <returns>List<string></returns>
         public abstract List<string> ListarNroVuelo();
-      
-
     }
 }

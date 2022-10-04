@@ -43,7 +43,10 @@ namespace Biblioteca
             get { return capacidadBodega; }
             set { capacidadBodega = value; }
         }
-
+        /// <summary>
+        /// Devuelve una lista de string con las matruclas de las Aeronaves
+        /// </summary>
+        /// <returns>List<string></returns>
         public List<string> ListarMatriculas()
         {
             List<string> listaMatriculas = new List<string>();
@@ -57,6 +60,43 @@ namespace Biblioteca
                 }
             }
             return listaMatriculas;
+        }
+        /// <summary>
+        /// Sobrecarga del operador == para comparar Aeronaves por Matricula
+        /// </summary>
+        /// <param name="a1"></param>
+        /// <param name="matricula"></param>
+        /// <returns>Retorna true si las matriculas de las Aeronaves son iguales</returns>
+        public static bool operator ==(Aeronave a1, string matricula)
+        {
+            return a1.matricula == matricula;
+        }
+        /// <summary>
+        /// Sobrecarga del operador !== para comparar Aeronaves por Matricula
+        /// </summary>
+        /// <param name="a1"></param>
+        /// <param name="matricula"></param>
+        /// <returns>Retorna false si la matricula de las Aeronaves son iguales</returns>
+        public static bool operator !=(Aeronave a1, string matricula)
+        {
+            return !(a1 == matricula);
+        }
+        /// <summary>
+        /// Busca Aeronaves por Matricula
+        /// </summary>
+        /// <param name="lista"></param>
+        /// <param name="matricula"></param>
+        /// <returns>Retorno el obejto de tipo Aeronave que contine la Matricula ingresado</returns>
+        public static Aeronave BuscarAeronave(List<Aeronave> lista, string matricula)
+        {
+            foreach (Aeronave item in lista)
+            {
+                if (item == matricula)
+                {
+                    return item;
+                }
+            }
+            return null;
         }
 
     }

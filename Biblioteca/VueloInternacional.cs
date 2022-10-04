@@ -30,8 +30,12 @@ namespace Biblioteca
             this.HoraPartida = horaPartidaAux.Hour.ToString();
             horaPartidaAux = horaPartidaAux.AddHours(Convert.ToDouble(duracionVuelo));
             this.HoraLlegada = horaPartidaAux.Hour.ToString();
-
         }
+
+        /// <summary>
+        /// Muestra la lista de vuelos Internacionales
+        /// </summary>
+        /// <returns>List<VueloInternacional></returns>
         public List<VueloInternacional> MostrarVuelos
         {
             get
@@ -51,7 +55,10 @@ namespace Biblioteca
                 return listaAux;
             }
         }
-
+        /// <summary>
+        /// Genrera una lista con los Nro de Vuelo Internacionales
+        /// </summary>
+        /// <returns>List<string></returns>
         public override List<string> ListarNroVuelo()
         {
             {

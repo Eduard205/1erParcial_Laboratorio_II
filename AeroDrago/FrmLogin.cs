@@ -39,17 +39,14 @@ namespace AeroDrago
                 }
             }
         }
-
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         private void btnLimpiarCampos_Click(object sender, EventArgs e)
         {
             txtUsuario.Clear();
             txtContrasena.Clear();
         }
-
     }
 }

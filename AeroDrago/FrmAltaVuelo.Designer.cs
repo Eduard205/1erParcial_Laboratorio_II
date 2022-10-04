@@ -76,7 +76,6 @@
             this.gBoxDatosVuelo.TabIndex = 12;
             this.gBoxDatosVuelo.TabStop = false;
             this.gBoxDatosVuelo.Text = "Datos del Vuelo";
-            this.gBoxDatosVuelo.Enter += new System.EventHandler(this.gBoxDatosVuelo_Enter);
             // 
             // gBoxVueloInternacional
             // 
@@ -190,7 +189,6 @@
             this.gBoxVueloNacional.TabIndex = 13;
             this.gBoxVueloNacional.TabStop = false;
             this.gBoxVueloNacional.Text = "Vuelo Nacional";
-            this.gBoxVueloNacional.Enter += new System.EventHandler(this.gBoxVueloNacional_Enter);
             // 
             // cboIdAeronaveNac
             // 
@@ -207,7 +205,6 @@
             this.cboDestinoNacional.Name = "cboDestinoNacional";
             this.cboDestinoNacional.Size = new System.Drawing.Size(143, 24);
             this.cboDestinoNacional.TabIndex = 16;
-            this.cboDestinoNacional.SelectedIndexChanged += new System.EventHandler(this.cboDestinoNacional_SelectedIndexChanged);
             // 
             // cboOrigenNacional
             // 
@@ -216,7 +213,6 @@
             this.cboOrigenNacional.Name = "cboOrigenNacional";
             this.cboOrigenNacional.Size = new System.Drawing.Size(143, 24);
             this.cboOrigenNacional.TabIndex = 15;
-            this.cboOrigenNacional.SelectedIndexChanged += new System.EventHandler(this.cboOrigenNacional_SelectedIndexChanged);
             // 
             // labIdAeronaveNac
             // 
@@ -228,7 +224,6 @@
             this.labIdAeronaveNac.Size = new System.Drawing.Size(98, 20);
             this.labIdAeronaveNac.TabIndex = 14;
             this.labIdAeronaveNac.Text = "Id Aeronave:";
-            this.labIdAeronaveNac.Click += new System.EventHandler(this.labIdAeronaveNac_Click);
             // 
             // labDestinoNacional
             // 
