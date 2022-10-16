@@ -30,6 +30,8 @@
         {
             this.dtpFechaPartidaNacional = new System.Windows.Forms.DateTimePicker();
             this.gBoxDatosVuelo = new System.Windows.Forms.GroupBox();
+            this.radDestinoNacional = new System.Windows.Forms.RadioButton();
+            this.radDestinoInternacional = new System.Windows.Forms.RadioButton();
             this.gBoxVueloInternacional = new System.Windows.Forms.GroupBox();
             this.cboIdAeronaveInt = new System.Windows.Forms.ComboBox();
             this.cboDestinoInternacional = new System.Windows.Forms.ComboBox();
@@ -47,7 +49,6 @@
             this.labDestinoNacional = new System.Windows.Forms.Label();
             this.labOrigenNacional = new System.Windows.Forms.Label();
             this.labFechaPartida = new System.Windows.Forms.Label();
-            this.chklDestino = new System.Windows.Forms.CheckedListBox();
             this.btnConfirmarAlta = new System.Windows.Forms.Button();
             this.btnCancelarAlta = new System.Windows.Forms.Button();
             this.gBoxDatosVuelo.SuspendLayout();
@@ -66,16 +67,41 @@
             // 
             // gBoxDatosVuelo
             // 
+            this.gBoxDatosVuelo.Controls.Add(this.radDestinoNacional);
+            this.gBoxDatosVuelo.Controls.Add(this.radDestinoInternacional);
             this.gBoxDatosVuelo.Controls.Add(this.gBoxVueloInternacional);
             this.gBoxDatosVuelo.Controls.Add(this.gBoxVueloNacional);
-            this.gBoxDatosVuelo.Controls.Add(this.chklDestino);
             this.gBoxDatosVuelo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.gBoxDatosVuelo.Location = new System.Drawing.Point(516, 15);
             this.gBoxDatosVuelo.Name = "gBoxDatosVuelo";
-            this.gBoxDatosVuelo.Size = new System.Drawing.Size(274, 362);
+            this.gBoxDatosVuelo.Size = new System.Drawing.Size(273, 355);
             this.gBoxDatosVuelo.TabIndex = 12;
             this.gBoxDatosVuelo.TabStop = false;
             this.gBoxDatosVuelo.Text = "Datos del Vuelo";
+            // 
+            // radDestinoNacional
+            // 
+            this.radDestinoNacional.AutoSize = true;
+            this.radDestinoNacional.Checked = true;
+            this.radDestinoNacional.Location = new System.Drawing.Point(12, 30);
+            this.radDestinoNacional.Name = "radDestinoNacional";
+            this.radDestinoNacional.Size = new System.Drawing.Size(81, 20);
+            this.radDestinoNacional.TabIndex = 20;
+            this.radDestinoNacional.TabStop = true;
+            this.radDestinoNacional.Text = "Nacional";
+            this.radDestinoNacional.UseVisualStyleBackColor = true;
+            this.radDestinoNacional.CheckedChanged += new System.EventHandler(this.radDestinoNacional_CheckedChanged);
+            // 
+            // radDestinoInternacional
+            // 
+            this.radDestinoInternacional.AutoSize = true;
+            this.radDestinoInternacional.Location = new System.Drawing.Point(113, 30);
+            this.radDestinoInternacional.Name = "radDestinoInternacional";
+            this.radDestinoInternacional.Size = new System.Drawing.Size(109, 20);
+            this.radDestinoInternacional.TabIndex = 19;
+            this.radDestinoInternacional.Text = "Internacional";
+            this.radDestinoInternacional.UseVisualStyleBackColor = true;
+            this.radDestinoInternacional.CheckedChanged += new System.EventHandler(this.radDestinoInternacional_CheckedChanged);
             // 
             // gBoxVueloInternacional
             // 
@@ -87,12 +113,13 @@
             this.gBoxVueloInternacional.Controls.Add(this.labOrigenNacionalInt);
             this.gBoxVueloInternacional.Controls.Add(this.labFechaPartidaInternacional);
             this.gBoxVueloInternacional.Controls.Add(this.dtpFechaPartidaInternacional);
-            this.gBoxVueloInternacional.Location = new System.Drawing.Point(6, 221);
+            this.gBoxVueloInternacional.Location = new System.Drawing.Point(6, 207);
             this.gBoxVueloInternacional.Name = "gBoxVueloInternacional";
             this.gBoxVueloInternacional.Size = new System.Drawing.Size(256, 135);
             this.gBoxVueloInternacional.TabIndex = 14;
             this.gBoxVueloInternacional.TabStop = false;
             this.gBoxVueloInternacional.Text = "Vuelo Internacional";
+            this.gBoxVueloInternacional.Visible = false;
             // 
             // cboIdAeronaveInt
             // 
@@ -101,6 +128,7 @@
             this.cboIdAeronaveInt.Name = "cboIdAeronaveInt";
             this.cboIdAeronaveInt.Size = new System.Drawing.Size(143, 24);
             this.cboIdAeronaveInt.TabIndex = 17;
+            this.cboIdAeronaveInt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboIdAeronaveInt_KeyPress);
             // 
             // cboDestinoInternacional
             // 
@@ -109,6 +137,7 @@
             this.cboDestinoInternacional.Name = "cboDestinoInternacional";
             this.cboDestinoInternacional.Size = new System.Drawing.Size(143, 24);
             this.cboDestinoInternacional.TabIndex = 16;
+            this.cboDestinoInternacional.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboDestinoInternacional_KeyPress);
             // 
             // cboOrigenNacionalInt
             // 
@@ -119,6 +148,7 @@
             this.cboOrigenNacionalInt.Name = "cboOrigenNacionalInt";
             this.cboOrigenNacionalInt.Size = new System.Drawing.Size(143, 24);
             this.cboOrigenNacionalInt.TabIndex = 15;
+            this.cboOrigenNacionalInt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboOrigenNacionalInt_KeyPress);
             // 
             // labIdAeronaveInt
             // 
@@ -183,12 +213,13 @@
             this.gBoxVueloNacional.Controls.Add(this.labOrigenNacional);
             this.gBoxVueloNacional.Controls.Add(this.labFechaPartida);
             this.gBoxVueloNacional.Controls.Add(this.dtpFechaPartidaNacional);
-            this.gBoxVueloNacional.Location = new System.Drawing.Point(6, 65);
+            this.gBoxVueloNacional.Location = new System.Drawing.Point(6, 66);
             this.gBoxVueloNacional.Name = "gBoxVueloNacional";
             this.gBoxVueloNacional.Size = new System.Drawing.Size(256, 135);
             this.gBoxVueloNacional.TabIndex = 13;
             this.gBoxVueloNacional.TabStop = false;
             this.gBoxVueloNacional.Text = "Vuelo Nacional";
+            this.gBoxVueloNacional.Visible = false;
             // 
             // cboIdAeronaveNac
             // 
@@ -197,6 +228,7 @@
             this.cboIdAeronaveNac.Name = "cboIdAeronaveNac";
             this.cboIdAeronaveNac.Size = new System.Drawing.Size(143, 24);
             this.cboIdAeronaveNac.TabIndex = 17;
+            this.cboIdAeronaveNac.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboIdAeronaveNac_KeyPress);
             // 
             // cboDestinoNacional
             // 
@@ -205,6 +237,7 @@
             this.cboDestinoNacional.Name = "cboDestinoNacional";
             this.cboDestinoNacional.Size = new System.Drawing.Size(143, 24);
             this.cboDestinoNacional.TabIndex = 16;
+            this.cboDestinoNacional.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboDestinoNacional_KeyPress);
             // 
             // cboOrigenNacional
             // 
@@ -213,6 +246,7 @@
             this.cboOrigenNacional.Name = "cboOrigenNacional";
             this.cboOrigenNacional.Size = new System.Drawing.Size(143, 24);
             this.cboOrigenNacional.TabIndex = 15;
+            this.cboOrigenNacional.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboOrigenNacional_KeyPress);
             // 
             // labIdAeronaveNac
             // 
@@ -258,19 +292,6 @@
             this.labFechaPartida.TabIndex = 0;
             this.labFechaPartida.Text = "Fecha de partida:";
             // 
-            // chklDestino
-            // 
-            this.chklDestino.CheckOnClick = true;
-            this.chklDestino.FormattingEnabled = true;
-            this.chklDestino.Items.AddRange(new object[] {
-            "Nacional",
-            "Internacional"});
-            this.chklDestino.Location = new System.Drawing.Point(6, 21);
-            this.chklDestino.Name = "chklDestino";
-            this.chklDestino.Size = new System.Drawing.Size(109, 38);
-            this.chklDestino.TabIndex = 12;
-            this.chklDestino.SelectedIndexChanged += new System.EventHandler(this.chklDestino_SelectedIndexChanged);
-            // 
             // btnConfirmarAlta
             // 
             this.btnConfirmarAlta.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -313,6 +334,7 @@
             this.Text = "Aero Drago > Alta de Vuelo";
             this.Load += new System.EventHandler(this.FrmAltaVuelo_Load);
             this.gBoxDatosVuelo.ResumeLayout(false);
+            this.gBoxDatosVuelo.PerformLayout();
             this.gBoxVueloInternacional.ResumeLayout(false);
             this.gBoxVueloInternacional.PerformLayout();
             this.gBoxVueloNacional.ResumeLayout(false);
@@ -325,7 +347,6 @@
         private DateTimePicker dtpFechaPartidaNacional;
         private GroupBox gBoxDatosVuelo;
         private Label labFechaPartida;
-        private CheckedListBox chklDestino;
         private GroupBox gBoxVueloNacional;
         private Label labDestinoNacional;
         private Label labOrigenNacional;
@@ -344,5 +365,7 @@
         private DateTimePicker dtpFechaPartidaInternacional;
         private Button btnConfirmarAlta;
         private Button btnCancelarAlta;
+        private RadioButton radDestinoNacional;
+        private RadioButton radDestinoInternacional;
     }
 }

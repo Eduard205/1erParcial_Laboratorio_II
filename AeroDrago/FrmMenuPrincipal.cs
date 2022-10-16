@@ -110,31 +110,18 @@ namespace AeroDrago
 
             dtgVuelosInternacionales.DataSource = null;
             dtgVuelosInternacionales.DataSource = DatosNegocio.MostrarVuelosInternacional;
+
+            cboNroVueloInt.DataSource = DatosNegocio.ListarNroVuelosInternacional;
+            cboNroVueloNac.DataSource = DatosNegocio.ListarNroVuelosNacional;
         }
         private void btnVenderPasajes_Click(object sender, EventArgs e)
         {
             gBoxVenderPasajes.Visible = true;
         }
-        private void chklDestino_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int selectorDestino = chklDestino.SelectedIndex;
-
-            if (selectorDestino == 0)
-            {
-                //Es Nacional
-                gBoxVueloNacional.Visible = true;
-                gBoxVueloInternacional.Visible = false;
-            }
-            else
-            {
-                //Es Internacional
-                gBoxVueloInternacional.Visible = true;
-                gBoxVueloNacional.Visible = false;
-            }
-        }
+        
         private void btnCargarPasajeroNac_Click(object sender, EventArgs e)
         {
-            string patron = "[!\"·$%&/()=¿¡?'_:;,|@#€*+-.123456789]";
+            string patron = "[!\"·$%&/()=¿¡?'_:;,|@#€*+-.0123456789]";
 
             try
             {
@@ -143,11 +130,11 @@ namespace AeroDrago
                     (!string.IsNullOrEmpty(txtEdadNac.Text.Trim())) &&
                     (!string.IsNullOrEmpty(txtDniNac.Text.Trim()))) &&
                     (cboEquipajeNac.SelectedItem is not null) &&
-                    (chklClasePremiumNac.SelectedItem is not null) &&
+                    (radSiPremiumNac.Checked == true || radNoPremiumNac.Checked == true) &&
                     (!string.IsNullOrEmpty((string)cboNroVueloNac.SelectedItem)))
                 {
                     if (int.TryParse(txtDniNac.Text, out dni) && DatosNegocio.ValidarDni(Dni) && int.TryParse(txtEdadNac.Text, out edad) &&
-                        (!Regex.IsMatch(txtNombreNac.Text, @"^[0-9]+$")) &&
+                        (!Regex.IsMatch(txtNombreNac.Text, patron)) &&
                         (!Regex.IsMatch(txtApellidoNac.Text, patron)) &&
                         (Dni > 0 && Edad >= 1))
                     {  
@@ -157,7 +144,7 @@ namespace AeroDrago
                         Edad = int.Parse(txtEdadNac.Text);
                         Equipaje = (EEquipaje)cboEquipajeNac.SelectedItem;
 
-                        if(chklClasePremiumNac.SelectedIndex==0)
+                        if(radSiPremiumNac.Checked == true)
                         {
                             EsPremium = true;
                         }
@@ -185,7 +172,7 @@ namespace AeroDrago
         }
         private void btnCargarPasajeroInt_Click(object sender, EventArgs e)
         {
-            string patron = "[!\"·$%&/()=¿¡?'_:;,|@#€*+-.123456789]";
+            string patron = "[!\"·$%&/()=¿¡?'_:;,|@#€*+-.0123456789]";
 
             try
             {
@@ -194,11 +181,11 @@ namespace AeroDrago
                     (!string.IsNullOrEmpty(txtEdadInt.Text.Trim())) &&
                     (!string.IsNullOrEmpty(txtDniInt.Text.Trim()))) &&
                     (cboEquipajeInt.SelectedItem is not null) &&
-                    (chklClasePremiumInt.SelectedItem is not null) &&
+                    (radSiPremiumInt.Checked==true || radNoPremiumInt.Checked == true) &&
                     (!string.IsNullOrEmpty((string)cboNroVueloInt.SelectedItem)))
                 {
                     if (int.TryParse(txtDniInt.Text, out dni) && DatosNegocio.ValidarDni(Dni) && int.TryParse(txtEdadInt.Text, out edad) &&
-                        (!Regex.IsMatch(txtNombreInt.Text, @"^[0-9]+$")) &&
+                         (!Regex.IsMatch(txtNombreInt.Text, patron)) &&
                         (!Regex.IsMatch(txtApellidoInt.Text, patron)) &&
                         (Dni > 0 && Edad >= 1))
                     {
@@ -208,7 +195,7 @@ namespace AeroDrago
                         Edad = int.Parse(txtEdadInt.Text);
                         Equipaje = (EEquipaje)cboEquipajeInt.SelectedItem;
                        
-                        if (chklClasePremiumInt.SelectedIndex == 0)
+                        if (radSiPremiumInt.Checked == true)
                         {
                             EsPremium = true;
                         }
@@ -237,6 +224,76 @@ namespace AeroDrago
         private void btnCerrarVentaPasajes_Click(object sender, EventArgs e)
         {
             gBoxVenderPasajes.Visible = false;
+        }
+
+        private void cboNroVueloInt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cboEquipajeInt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cboNroVueloNac_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cboEquipajeNac_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void radInternacional_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radInternacional.Checked == true)
+            {
+                gBoxVueloInternacional.Visible = true;
+                gBoxVueloNacional.Visible = false;
+            }
+        }
+
+        private void radNacional_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radNacional.Checked == true)
+            {
+                gBoxVueloNacional.Visible = true;
+                gBoxVueloInternacional.Visible = false;
+            }
+        }
+
+        private void radSiPremiumInt_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radSiPremiumInt.Checked == true)
+            {
+                radNoPremiumInt.Checked = false;
+            }
+        }
+
+        private void radNoPremiumInt_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radNoPremiumInt.Checked == true)
+            {
+                radSiPremiumInt.Checked = false;
+            }
+        }
+
+        private void radSiPremiumNac_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radSiPremiumNac.Checked == true)
+            {
+                radNoPremiumNac.Checked = false;
+            }
+        }
+
+        private void radNoPremiumNac_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radNoPremiumNac.Checked == true)
+            {
+                radSiPremiumNac.Checked = false;
+            }
         }
     }
 }

@@ -36,16 +36,12 @@
             this.gboxVuelosNacionales = new System.Windows.Forms.GroupBox();
             this.gBoxVenderPasajes = new System.Windows.Forms.GroupBox();
             this.gBoxDatosVuelo = new System.Windows.Forms.GroupBox();
-            this.dtgCargarPasajero = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.radNacional = new System.Windows.Forms.RadioButton();
+            this.radInternacional = new System.Windows.Forms.RadioButton();
             this.gBoxVueloInternacional = new System.Windows.Forms.GroupBox();
+            this.radNoPremiumInt = new System.Windows.Forms.RadioButton();
+            this.radSiPremiumInt = new System.Windows.Forms.RadioButton();
             this.btnCargarPasajeroInt = new System.Windows.Forms.Button();
-            this.chklClasePremiumInt = new System.Windows.Forms.CheckedListBox();
             this.txtEdadInt = new System.Windows.Forms.TextBox();
             this.cboEquipajeInt = new System.Windows.Forms.ComboBox();
             this.txtDniInt = new System.Windows.Forms.TextBox();
@@ -60,8 +56,9 @@
             this.labNombreInt = new System.Windows.Forms.Label();
             this.labNroVueloInt = new System.Windows.Forms.Label();
             this.gBoxVueloNacional = new System.Windows.Forms.GroupBox();
+            this.radNoPremiumNac = new System.Windows.Forms.RadioButton();
+            this.radSiPremiumNac = new System.Windows.Forms.RadioButton();
             this.btnCargarPasajeroNac = new System.Windows.Forms.Button();
-            this.chklClasePremiumNac = new System.Windows.Forms.CheckedListBox();
             this.txtEdadNac = new System.Windows.Forms.TextBox();
             this.cboEquipajeNac = new System.Windows.Forms.ComboBox();
             this.txtDniNac = new System.Windows.Forms.TextBox();
@@ -75,21 +72,27 @@
             this.labApellidoNac = new System.Windows.Forms.Label();
             this.labNombreNac = new System.Windows.Forms.Label();
             this.labNroVueloNac = new System.Windows.Forms.Label();
-            this.chklDestino = new System.Windows.Forms.CheckedListBox();
+            this.btnCerrarVentaPasajes = new System.Windows.Forms.Button();
+            this.dtgCargarPasajero = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gBoxVuelosInternacionales = new System.Windows.Forms.GroupBox();
             this.dtgVuelosInternacionales = new System.Windows.Forms.DataGridView();
             this.btnMostrarVuelos = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnAltaVuelo = new System.Windows.Forms.Button();
             this.btnVenderPasajes = new System.Windows.Forms.Button();
-            this.btnCerrarVentaPasajes = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgVuelosNacionales)).BeginInit();
             this.gboxVuelosNacionales.SuspendLayout();
             this.gBoxVenderPasajes.SuspendLayout();
             this.gBoxDatosVuelo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgCargarPasajero)).BeginInit();
             this.gBoxVueloInternacional.SuspendLayout();
             this.gBoxVueloNacional.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgCargarPasajero)).BeginInit();
             this.gBoxVuelosInternacionales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgVuelosInternacionales)).BeginInit();
             this.SuspendLayout();
@@ -167,9 +170,10 @@
             // 
             this.gBoxVenderPasajes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.gBoxVenderPasajes.Controls.Add(this.gBoxDatosVuelo);
-            this.gBoxVenderPasajes.Location = new System.Drawing.Point(46, 22);
+            this.gBoxVenderPasajes.Controls.Add(this.dtgCargarPasajero);
+            this.gBoxVenderPasajes.Location = new System.Drawing.Point(27, 22);
             this.gBoxVenderPasajes.Name = "gBoxVenderPasajes";
-            this.gBoxVenderPasajes.Size = new System.Drawing.Size(841, 392);
+            this.gBoxVenderPasajes.Size = new System.Drawing.Size(872, 392);
             this.gBoxVenderPasajes.TabIndex = 18;
             this.gBoxVenderPasajes.TabStop = false;
             this.gBoxVenderPasajes.Text = "Venta de Pasajes";
@@ -177,78 +181,48 @@
             // gBoxDatosVuelo
             // 
             this.gBoxDatosVuelo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.gBoxDatosVuelo.Controls.Add(this.btnCerrarVentaPasajes);
-            this.gBoxDatosVuelo.Controls.Add(this.dtgCargarPasajero);
+            this.gBoxDatosVuelo.Controls.Add(this.radNacional);
+            this.gBoxDatosVuelo.Controls.Add(this.radInternacional);
             this.gBoxDatosVuelo.Controls.Add(this.gBoxVueloInternacional);
             this.gBoxDatosVuelo.Controls.Add(this.gBoxVueloNacional);
-            this.gBoxDatosVuelo.Controls.Add(this.chklDestino);
+            this.gBoxDatosVuelo.Controls.Add(this.btnCerrarVentaPasajes);
             this.gBoxDatosVuelo.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.gBoxDatosVuelo.Location = new System.Drawing.Point(6, 20);
+            this.gBoxDatosVuelo.Location = new System.Drawing.Point(29, 22);
             this.gBoxDatosVuelo.Name = "gBoxDatosVuelo";
-            this.gBoxDatosVuelo.Size = new System.Drawing.Size(835, 352);
+            this.gBoxDatosVuelo.Size = new System.Drawing.Size(303, 364);
             this.gBoxDatosVuelo.TabIndex = 13;
             this.gBoxDatosVuelo.TabStop = false;
             this.gBoxDatosVuelo.Text = "Datos del Vuelo";
             // 
-            // dtgCargarPasajero
+            // radNacional
             // 
-            this.dtgCargarPasajero.AllowUserToAddRows = false;
-            this.dtgCargarPasajero.AllowUserToOrderColumns = true;
-            this.dtgCargarPasajero.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtgCargarPasajero.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgCargarPasajero.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dtgCargarPasajero.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtgCargarPasajero.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dtgCargarPasajero.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgCargarPasajero.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.Column1,
-            this.Column2,
-            this.Column3});
-            this.dtgCargarPasajero.Location = new System.Drawing.Point(304, 17);
-            this.dtgCargarPasajero.Name = "dtgCargarPasajero";
-            this.dtgCargarPasajero.RowHeadersVisible = false;
-            this.dtgCargarPasajero.RowTemplate.Height = 25;
-            this.dtgCargarPasajero.Size = new System.Drawing.Size(525, 187);
-            this.dtgCargarPasajero.TabIndex = 15;
+            this.radNacional.AutoSize = true;
+            this.radNacional.Location = new System.Drawing.Point(10, 23);
+            this.radNacional.Name = "radNacional";
+            this.radNacional.Size = new System.Drawing.Size(74, 19);
+            this.radNacional.TabIndex = 18;
+            this.radNacional.TabStop = true;
+            this.radNacional.Text = "Nacional";
+            this.radNacional.UseVisualStyleBackColor = true;
+            this.radNacional.CheckedChanged += new System.EventHandler(this.radNacional_CheckedChanged);
             // 
-            // dataGridViewTextBoxColumn1
+            // radInternacional
             // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "DNI";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Apellido";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Edad";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Equipaje";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "EsPremium";
-            this.Column3.Name = "Column3";
+            this.radInternacional.AutoSize = true;
+            this.radInternacional.Location = new System.Drawing.Point(90, 23);
+            this.radInternacional.Name = "radInternacional";
+            this.radInternacional.Size = new System.Drawing.Size(99, 19);
+            this.radInternacional.TabIndex = 17;
+            this.radInternacional.TabStop = true;
+            this.radInternacional.Text = "Internacional";
+            this.radInternacional.UseVisualStyleBackColor = true;
+            this.radInternacional.CheckedChanged += new System.EventHandler(this.radInternacional_CheckedChanged);
             // 
             // gBoxVueloInternacional
             // 
+            this.gBoxVueloInternacional.Controls.Add(this.radNoPremiumInt);
+            this.gBoxVueloInternacional.Controls.Add(this.radSiPremiumInt);
             this.gBoxVueloInternacional.Controls.Add(this.btnCargarPasajeroInt);
-            this.gBoxVueloInternacional.Controls.Add(this.chklClasePremiumInt);
             this.gBoxVueloInternacional.Controls.Add(this.txtEdadInt);
             this.gBoxVueloInternacional.Controls.Add(this.cboEquipajeInt);
             this.gBoxVueloInternacional.Controls.Add(this.txtDniInt);
@@ -262,12 +236,34 @@
             this.gBoxVueloInternacional.Controls.Add(this.labApellidoInt);
             this.gBoxVueloInternacional.Controls.Add(this.labNombreInt);
             this.gBoxVueloInternacional.Controls.Add(this.labNroVueloInt);
-            this.gBoxVueloInternacional.Location = new System.Drawing.Point(0, 83);
+            this.gBoxVueloInternacional.Location = new System.Drawing.Point(3, 87);
             this.gBoxVueloInternacional.Name = "gBoxVueloInternacional";
-            this.gBoxVueloInternacional.Size = new System.Drawing.Size(293, 257);
+            this.gBoxVueloInternacional.Size = new System.Drawing.Size(293, 263);
             this.gBoxVueloInternacional.TabIndex = 14;
             this.gBoxVueloInternacional.TabStop = false;
             this.gBoxVueloInternacional.Text = "Vuelo Internacional";
+            // 
+            // radNoPremiumInt
+            // 
+            this.radNoPremiumInt.AutoSize = true;
+            this.radNoPremiumInt.Location = new System.Drawing.Point(166, 178);
+            this.radNoPremiumInt.Name = "radNoPremiumInt";
+            this.radNoPremiumInt.Size = new System.Drawing.Size(42, 19);
+            this.radNoPremiumInt.TabIndex = 41;
+            this.radNoPremiumInt.TabStop = true;
+            this.radNoPremiumInt.Text = "NO";
+            this.radNoPremiumInt.UseVisualStyleBackColor = true;
+            // 
+            // radSiPremiumInt
+            // 
+            this.radSiPremiumInt.AutoSize = true;
+            this.radSiPremiumInt.Location = new System.Drawing.Point(124, 178);
+            this.radSiPremiumInt.Name = "radSiPremiumInt";
+            this.radSiPremiumInt.Size = new System.Drawing.Size(36, 19);
+            this.radSiPremiumInt.TabIndex = 40;
+            this.radSiPremiumInt.TabStop = true;
+            this.radSiPremiumInt.Text = "SI";
+            this.radSiPremiumInt.UseVisualStyleBackColor = true;
             // 
             // btnCargarPasajeroInt
             // 
@@ -280,18 +276,6 @@
             this.btnCargarPasajeroInt.Text = "Cargar Pasajero";
             this.btnCargarPasajeroInt.UseVisualStyleBackColor = false;
             this.btnCargarPasajeroInt.Click += new System.EventHandler(this.btnCargarPasajeroInt_Click);
-            // 
-            // chklClasePremiumInt
-            // 
-            this.chklClasePremiumInt.CheckOnClick = true;
-            this.chklClasePremiumInt.FormattingEnabled = true;
-            this.chklClasePremiumInt.Items.AddRange(new object[] {
-            "SI",
-            "NO"});
-            this.chklClasePremiumInt.Location = new System.Drawing.Point(123, 178);
-            this.chklClasePremiumInt.Name = "chklClasePremiumInt";
-            this.chklClasePremiumInt.Size = new System.Drawing.Size(46, 36);
-            this.chklClasePremiumInt.TabIndex = 38;
             // 
             // txtEdadInt
             // 
@@ -307,6 +291,7 @@
             this.cboEquipajeInt.Name = "cboEquipajeInt";
             this.cboEquipajeInt.Size = new System.Drawing.Size(163, 23);
             this.cboEquipajeInt.TabIndex = 34;
+            this.cboEquipajeInt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboEquipajeInt_KeyPress);
             // 
             // txtDniInt
             // 
@@ -347,6 +332,7 @@
             this.cboNroVueloInt.Name = "cboNroVueloInt";
             this.cboNroVueloInt.Size = new System.Drawing.Size(163, 23);
             this.cboNroVueloInt.TabIndex = 31;
+            this.cboNroVueloInt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboNroVueloInt_KeyPress);
             // 
             // labClasePremiumInt
             // 
@@ -416,8 +402,9 @@
             // 
             // gBoxVueloNacional
             // 
+            this.gBoxVueloNacional.Controls.Add(this.radNoPremiumNac);
+            this.gBoxVueloNacional.Controls.Add(this.radSiPremiumNac);
             this.gBoxVueloNacional.Controls.Add(this.btnCargarPasajeroNac);
-            this.gBoxVueloNacional.Controls.Add(this.chklClasePremiumNac);
             this.gBoxVueloNacional.Controls.Add(this.txtEdadNac);
             this.gBoxVueloNacional.Controls.Add(this.cboEquipajeNac);
             this.gBoxVueloNacional.Controls.Add(this.txtDniNac);
@@ -431,12 +418,34 @@
             this.gBoxVueloNacional.Controls.Add(this.labApellidoNac);
             this.gBoxVueloNacional.Controls.Add(this.labNombreNac);
             this.gBoxVueloNacional.Controls.Add(this.labNroVueloNac);
-            this.gBoxVueloNacional.Location = new System.Drawing.Point(6, 63);
+            this.gBoxVueloNacional.Location = new System.Drawing.Point(4, 48);
             this.gBoxVueloNacional.Name = "gBoxVueloNacional";
-            this.gBoxVueloNacional.Size = new System.Drawing.Size(293, 256);
+            this.gBoxVueloNacional.Size = new System.Drawing.Size(293, 263);
             this.gBoxVueloNacional.TabIndex = 13;
             this.gBoxVueloNacional.TabStop = false;
             this.gBoxVueloNacional.Text = "Vuelo Nacional";
+            // 
+            // radNoPremiumNac
+            // 
+            this.radNoPremiumNac.AutoSize = true;
+            this.radNoPremiumNac.Location = new System.Drawing.Point(163, 175);
+            this.radNoPremiumNac.Name = "radNoPremiumNac";
+            this.radNoPremiumNac.Size = new System.Drawing.Size(42, 19);
+            this.radNoPremiumNac.TabIndex = 43;
+            this.radNoPremiumNac.TabStop = true;
+            this.radNoPremiumNac.Text = "NO";
+            this.radNoPremiumNac.UseVisualStyleBackColor = true;
+            // 
+            // radSiPremiumNac
+            // 
+            this.radSiPremiumNac.AutoSize = true;
+            this.radSiPremiumNac.Location = new System.Drawing.Point(123, 176);
+            this.radSiPremiumNac.Name = "radSiPremiumNac";
+            this.radSiPremiumNac.Size = new System.Drawing.Size(36, 19);
+            this.radSiPremiumNac.TabIndex = 42;
+            this.radSiPremiumNac.TabStop = true;
+            this.radSiPremiumNac.Text = "SI";
+            this.radSiPremiumNac.UseVisualStyleBackColor = true;
             // 
             // btnCargarPasajeroNac
             // 
@@ -449,18 +458,6 @@
             this.btnCargarPasajeroNac.Text = "Cargar Pasajero";
             this.btnCargarPasajeroNac.UseVisualStyleBackColor = false;
             this.btnCargarPasajeroNac.Click += new System.EventHandler(this.btnCargarPasajeroNac_Click);
-            // 
-            // chklClasePremiumNac
-            // 
-            this.chklClasePremiumNac.CheckOnClick = true;
-            this.chklClasePremiumNac.FormattingEnabled = true;
-            this.chklClasePremiumNac.Items.AddRange(new object[] {
-            "SI",
-            "NO"});
-            this.chklClasePremiumNac.Location = new System.Drawing.Point(123, 175);
-            this.chklClasePremiumNac.Name = "chklClasePremiumNac";
-            this.chklClasePremiumNac.Size = new System.Drawing.Size(46, 36);
-            this.chklClasePremiumNac.TabIndex = 24;
             // 
             // txtEdadNac
             // 
@@ -476,6 +473,7 @@
             this.cboEquipajeNac.Name = "cboEquipajeNac";
             this.cboEquipajeNac.Size = new System.Drawing.Size(163, 23);
             this.cboEquipajeNac.TabIndex = 21;
+            this.cboEquipajeNac.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboEquipajeNac_KeyPress);
             // 
             // txtDniNac
             // 
@@ -516,6 +514,7 @@
             this.cboNroVueloNac.Name = "cboNroVueloNac";
             this.cboNroVueloNac.Size = new System.Drawing.Size(163, 23);
             this.cboNroVueloNac.TabIndex = 19;
+            this.cboNroVueloNac.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboNroVueloNac_KeyPress);
             // 
             // labClasePremiumNac
             // 
@@ -583,18 +582,72 @@
             this.labNroVueloNac.TabIndex = 0;
             this.labNroVueloNac.Text = "Nro de Vuelo:";
             // 
-            // chklDestino
+            // btnCerrarVentaPasajes
             // 
-            this.chklDestino.CheckOnClick = true;
-            this.chklDestino.FormattingEnabled = true;
-            this.chklDestino.Items.AddRange(new object[] {
-            "Nacional",
-            "Internacional"});
-            this.chklDestino.Location = new System.Drawing.Point(6, 21);
-            this.chklDestino.Name = "chklDestino";
-            this.chklDestino.Size = new System.Drawing.Size(109, 36);
-            this.chklDestino.TabIndex = 12;
-            this.chklDestino.SelectedIndexChanged += new System.EventHandler(this.chklDestino_SelectedIndexChanged);
+            this.btnCerrarVentaPasajes.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnCerrarVentaPasajes.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCerrarVentaPasajes.Location = new System.Drawing.Point(704, 318);
+            this.btnCerrarVentaPasajes.Name = "btnCerrarVentaPasajes";
+            this.btnCerrarVentaPasajes.Size = new System.Drawing.Size(125, 34);
+            this.btnCerrarVentaPasajes.TabIndex = 16;
+            this.btnCerrarVentaPasajes.Text = "Cerrar";
+            this.btnCerrarVentaPasajes.UseVisualStyleBackColor = false;
+            this.btnCerrarVentaPasajes.Click += new System.EventHandler(this.btnCerrarVentaPasajes_Click);
+            // 
+            // dtgCargarPasajero
+            // 
+            this.dtgCargarPasajero.AllowUserToAddRows = false;
+            this.dtgCargarPasajero.AllowUserToOrderColumns = true;
+            this.dtgCargarPasajero.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtgCargarPasajero.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgCargarPasajero.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dtgCargarPasajero.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtgCargarPasajero.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dtgCargarPasajero.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgCargarPasajero.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.Column1,
+            this.Column2,
+            this.Column3});
+            this.dtgCargarPasajero.Location = new System.Drawing.Point(364, 27);
+            this.dtgCargarPasajero.Name = "dtgCargarPasajero";
+            this.dtgCargarPasajero.RowHeadersVisible = false;
+            this.dtgCargarPasajero.RowTemplate.Height = 25;
+            this.dtgCargarPasajero.Size = new System.Drawing.Size(472, 187);
+            this.dtgCargarPasajero.TabIndex = 15;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "DNI";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Apellido";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Edad";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Equipaje";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "EsPremium";
+            this.Column3.Name = "Column3";
             // 
             // gBoxVuelosInternacionales
             // 
@@ -674,18 +727,6 @@
             this.btnVenderPasajes.UseVisualStyleBackColor = false;
             this.btnVenderPasajes.Click += new System.EventHandler(this.btnVenderPasajes_Click);
             // 
-            // btnCerrarVentaPasajes
-            // 
-            this.btnCerrarVentaPasajes.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnCerrarVentaPasajes.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnCerrarVentaPasajes.Location = new System.Drawing.Point(704, 318);
-            this.btnCerrarVentaPasajes.Name = "btnCerrarVentaPasajes";
-            this.btnCerrarVentaPasajes.Size = new System.Drawing.Size(125, 34);
-            this.btnCerrarVentaPasajes.TabIndex = 16;
-            this.btnCerrarVentaPasajes.Text = "Cerrar";
-            this.btnCerrarVentaPasajes.UseVisualStyleBackColor = false;
-            this.btnCerrarVentaPasajes.Click += new System.EventHandler(this.btnCerrarVentaPasajes_Click);
-            // 
             // FrmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -714,11 +755,12 @@
             this.gboxVuelosNacionales.ResumeLayout(false);
             this.gBoxVenderPasajes.ResumeLayout(false);
             this.gBoxDatosVuelo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgCargarPasajero)).EndInit();
+            this.gBoxDatosVuelo.PerformLayout();
             this.gBoxVueloInternacional.ResumeLayout(false);
             this.gBoxVueloInternacional.PerformLayout();
             this.gBoxVueloNacional.ResumeLayout(false);
             this.gBoxVueloNacional.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgCargarPasajero)).EndInit();
             this.gBoxVuelosInternacionales.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgVuelosInternacionales)).EndInit();
             this.ResumeLayout(false);
@@ -747,7 +789,6 @@
         private Label labApellidoNac;
         private Label labNombreNac;
         private Label labNroVueloNac;
-        private CheckedListBox chklDestino;
         private ComboBox cboNroVueloNac;
         private Label labEdadNac;
         private Label labClasePremiumNac;
@@ -770,8 +811,6 @@
         private Label labApellidoInt;
         private Label labNombreInt;
         private Label labNroVueloInt;
-        private CheckedListBox chklClasePremiumInt;
-        private CheckedListBox chklClasePremiumNac;
         private Button btnCargarPasajeroInt;
         private Button btnCargarPasajeroNac;
         private DataGridView dtgCargarPasajero;
@@ -782,5 +821,11 @@
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private Button btnCerrarVentaPasajes;
+        private RadioButton radInternacional;
+        private RadioButton radNacional;
+        private RadioButton radNoPremiumInt;
+        private RadioButton radSiPremiumInt;
+        private RadioButton radNoPremiumNac;
+        private RadioButton radSiPremiumNac;
     }
 }

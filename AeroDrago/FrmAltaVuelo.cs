@@ -21,28 +21,13 @@ namespace AeroDrago
             InitializeComponent();
         }
 
-        private void chklDestino_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int selectorDestino = chklDestino.SelectedIndex;
-
-            if (selectorDestino == 0) 
-            {
-                //Es Nacional
-                gBoxVueloNacional.Visible = true;
-                gBoxVueloInternacional.Visible = false;
-            }
-            else
-            {
-                //Es Internacional
-                gBoxVueloInternacional.Visible = true;
-                gBoxVueloNacional.Visible = false;
-            }
-        }
         private void FrmAltaVuelo_Load(object sender, EventArgs e)
         {
+            radDestinoNacional.Checked = false;
+            radDestinoInternacional.Checked = false;
             gBoxVueloNacional.Visible = false;
             gBoxVueloInternacional.Visible = false;
-            
+       
             cboOrigenNacional.DataSource = Enum.GetValues(typeof(EOrigenNacional));
             cboDestinoNacional.DataSource = Enum.GetValues(typeof(EDestinoNacional));
             cboOrigenNacionalInt.DataSource = Enum.GetValues(typeof(EOrigenNacional));
@@ -62,9 +47,8 @@ namespace AeroDrago
             VueloNacional vueloNacional;
             VueloInternacional vueloInternacional;
             List<Pasajero> listaPasajeros;
-            int selectorDestino = chklDestino.SelectedIndex;
 
-            if (selectorDestino == 0)
+            if (radDestinoNacional.Checked == true)
             {
                 if (!string.IsNullOrEmpty(dtpFechaPartidaNacional.Value.Date.ToShortDateString()) &&
                     (cboOrigenNacional.SelectedItem is not null) &&
@@ -121,7 +105,7 @@ namespace AeroDrago
                     {
                         vueloInternacional = new VueloInternacional(fechaPartida, origen, destino, idAeronave, esInternacional, listaPasajeros);
 
-                        MessageBox.Show($"Se dio de alta vuelo Nacional\n" +
+                        MessageBox.Show($"Se dio de alta vuelo Internacional\n" +
                             $"Fecha de Partida: {fechaPartida}\n" +
                             $"Origen: {origen}\n" +
                             $"Destino: {destino}\n" +
@@ -146,6 +130,54 @@ namespace AeroDrago
         private void btnCancelarAlta_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void cboOrigenNacional_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cboDestinoNacional_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cboIdAeronaveNac_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cboOrigenNacionalInt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cboDestinoInternacional_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cboIdAeronaveInt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void radDestinoNacional_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radDestinoNacional.Checked == true)
+            {
+                gBoxVueloNacional.Visible = true;
+                gBoxVueloInternacional.Visible = false;
+            }
+        }
+
+        private void radDestinoInternacional_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radDestinoInternacional.Checked == true)
+            {
+                gBoxVueloInternacional.Visible = true;
+                gBoxVueloNacional.Visible = false;
+            }
         }
     }
 }
