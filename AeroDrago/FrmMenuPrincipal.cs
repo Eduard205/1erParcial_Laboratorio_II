@@ -24,8 +24,6 @@ namespace AeroDrago
         private string NroVuelo;
         private List<Pasajero> listaPasajerosNac = new List<Pasajero>();
         private List<Pasajero> listaPasajerosInt = new List<Pasajero>();
-        //private List<Pasajero> listaPasajerosNacAux = new List<Pasajero>();
-        //private List<Pasajero> listaPasajerosIntAux = new List<Pasajero>();
         public List<VueloNacional> listaVuelosNac = new List<VueloNacional>();
         public List<VueloInternacional> listaVuelosInt = new List<VueloInternacional>();
 
@@ -45,14 +43,14 @@ namespace AeroDrago
         }
         public FrmMenuPrincipal(Usuario nombre) : this()
         {
-            labNombreOperador.Text= $"Vendedor: {nombre.Nombre}, {DateTime.Now.ToString("dd-MM-yyyy")}";
+            labNombreOperador.Text = $"Vendedor: {nombre.Nombre}, {DateTime.Now.ToString("dd-MM-yyyy")}";
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             FrmLogin FrmLogin = new FrmLogin();
             FrmLogin.Show();
-            this.Hide();        
+            this.Hide();
         }
         private void btnSalir_Click_1(object sender, EventArgs e)
         {
@@ -124,7 +122,7 @@ namespace AeroDrago
         {
             gBoxVenderPasajes.Visible = true;
         }
-        
+
         private void btnCargarPasajeroNac_Click(object sender, EventArgs e)
         {
             string patron = "[!\"·$%&/()=¿¡?'_:;,|@#€*+-.0123456789]";
@@ -151,18 +149,18 @@ namespace AeroDrago
                         Edad = int.Parse(txtEdadNac.Text);
                         Equipaje = (EEquipaje)cboEquipajeNac.SelectedItem;
 
-                        if(radSiPremiumNac.Checked == true)
+                        if (radSiPremiumNac.Checked == true)
                         {
                             EsPremium = true;
                         }
                         else
                         {
-                           EsPremium = false;
+                            EsPremium = false;
                         }
-                       
-                        dtgCargarPasajero.Rows.Add(NroVuelo,Nombre, Apellido, Dni, Edad, Equipaje, EsPremium);
-                       
-                        listaPasajerosNac.Add(new Pasajero(NroVuelo,Nombre, Apellido, Dni, Edad, Equipaje, EsPremium));
+
+                        dtgCargarPasajero.Rows.Add(NroVuelo, Nombre, Apellido, Dni, Edad, Equipaje, EsPremium);
+
+                        listaPasajerosNac.Add(new Pasajero(NroVuelo, Nombre, Apellido, Dni, Edad, Equipaje, EsPremium));
                         LimpiarCamposVentaVueloNacional();
                     }
                     else
@@ -191,7 +189,7 @@ namespace AeroDrago
                     (!string.IsNullOrEmpty(txtEdadInt.Text.Trim())) &&
                     (!string.IsNullOrEmpty(txtDniInt.Text.Trim()))) &&
                     (cboEquipajeInt.SelectedItem is not null) &&
-                    (radSiPremiumInt.Checked==true || radNoPremiumInt.Checked == true) &&
+                    (radSiPremiumInt.Checked == true || radNoPremiumInt.Checked == true) &&
                     (!string.IsNullOrEmpty((string)cboNroVueloInt.SelectedItem)))
                 {
                     if (int.TryParse(txtDniInt.Text, out dni) && DatosNegocio.ValidarDni(Dni) && int.TryParse(txtEdadInt.Text, out edad) &&
@@ -205,7 +203,7 @@ namespace AeroDrago
                         Dni = int.Parse(txtDniInt.Text);
                         Edad = int.Parse(txtEdadInt.Text);
                         Equipaje = (EEquipaje)cboEquipajeInt.SelectedItem;
-                       
+
                         if (radSiPremiumInt.Checked == true)
                         {
                             EsPremium = true;
@@ -215,8 +213,8 @@ namespace AeroDrago
                             EsPremium = false;
                         }
 
-                        dtgCargarPasajero.Rows.Add(NroVuelo,Nombre, Apellido, Dni, Edad, Equipaje, EsPremium);
-                        listaPasajerosInt.Add(new Pasajero(NroVuelo,Nombre, Apellido, Dni, Edad, Equipaje, EsPremium));
+                        dtgCargarPasajero.Rows.Add(NroVuelo, Nombre, Apellido, Dni, Edad, Equipaje, EsPremium);
+                        listaPasajerosInt.Add(new Pasajero(NroVuelo, Nombre, Apellido, Dni, Edad, Equipaje, EsPremium));
                         LimpiarCamposVentaVueloInternacional();
                     }
                     else
@@ -351,7 +349,7 @@ namespace AeroDrago
             dtgCargarPasajero.Rows.Clear();
             LimpiarCamposVentaVueloInternacional();
             LimpiarCamposVentaVueloNacional();
-            
+
         }
 
         public void LimpiarCamposVentaVueloInternacional()
@@ -383,52 +381,88 @@ namespace AeroDrago
 
         private void btnAgregarPasajerosAVuelo_Click(object sender, EventArgs e)
         {
-
-            if (listaPasajerosNac.Count > 0 && listaPasajerosNac is not null)
-            {
-                foreach (VueloNacional item in listaVuelosNac)
-                {
-                    foreach (Pasajero item2 in listaPasajerosNac)
-                    {
-                        if (item.NroVuelo == item2.NroVuelo)
-                        { 
-                            item.ListaPasajeros.AddRange(listaPasajerosNac);
-                            MessageBox.Show($"Se agregaron los pasajeros al Vuelo Nacional Nro: {item.NroVuelo}");
-                        }
-                    }
-                }
-            }
-
-            if (listaPasajerosInt.Count > 0 && listaPasajerosInt is not null)
-            {
-                foreach (VueloInternacional item in listaVuelosInt)
-                {
-                    foreach (Pasajero item2 in listaPasajerosInt)
-                    {
-                        if (item.NroVuelo == item2.NroVuelo)
-                        {
-                            item.ListaPasajeros.AddRange(listaPasajerosInt);
-
-                            MessageBox.Show($"Se agregaron los pasajeros al Vuelo Internacional Nro: {item.NroVuelo}");
-                        }
-                    }
-                }
-                //listaPasajerosInt.Clear();
-                //dtgCargarPasajero.Rows.Clear();
-            }
-
             if (listaPasajerosNac.Count == 0 && listaPasajerosInt.Count == 0)
             {
                 MessageBox.Show("Aún no ha cargado pasajeros");
             }
+
+            if (listaPasajerosNac.Count > 0 && listaPasajerosNac is not null)
+                {
+                    foreach (VueloNacional item in listaVuelosNac)
+                    {
+                        foreach (Pasajero item2 in listaPasajerosNac)
+                        {
+                            if (item.NroVuelo == item2.NroVuelo)
+                            {
+                                if (Aeronave.BuscarAeronave(DatosNegocio.ListaAeronaves, item.IdAeronave).CantidadAsientos > listaPasajerosNac.Count())
+                                {
+                                    Aeronave.BuscarAeronave(DatosNegocio.ListaAeronaves, item.IdAeronave).DisminuirCantidadAsientos(listaPasajerosNac.Count());
+
+                                    if (item2.Equipaje == EEquipaje.Bodega)
+                                    {
+                                        if (item2.EsPremium)
+                                        {
+                                            Aeronave.BuscarAeronave(DatosNegocio.ListaAeronaves, item.IdAeronave).DisminuirCapacidadBodega(42);
+                                        }
+                                        else
+                                        {
+                                            Aeronave.BuscarAeronave(DatosNegocio.ListaAeronaves, item.IdAeronave).DisminuirCapacidadBodega(25);
+                                        }
+                                    }
+                                }
+                                item.ListaPasajeros.AddRange(listaPasajerosNac);
+                                MessageBox.Show($"Se agregaron los pasajeros al Vuelo Nacional Nro: {item.NroVuelo}");
+                            }
+                        }
+                    }
+                   
+                }
+
+                if (listaPasajerosInt.Count > 0 && listaPasajerosInt is not null)
+                {
+                    foreach (VueloInternacional item in listaVuelosInt)
+                    {
+                        foreach (Pasajero item2 in listaPasajerosInt)
+                        {
+                            if (item.NroVuelo == item2.NroVuelo)
+                            {
+                                if (item.NroVuelo == item2.NroVuelo)
+                                {
+                                    if (Aeronave.BuscarAeronave(DatosNegocio.ListaAeronaves, item.IdAeronave).CantidadAsientos > listaPasajerosInt.Count())
+                                    {
+                                        Aeronave.BuscarAeronave(DatosNegocio.ListaAeronaves, item.IdAeronave).DisminuirCantidadAsientos(listaPasajerosInt.Count());
+
+                                        if (item2.Equipaje == EEquipaje.Bodega)
+                                        {
+                                            if (item2.EsPremium)
+                                            {
+                                                Aeronave.BuscarAeronave(DatosNegocio.ListaAeronaves, item.IdAeronave).DisminuirCapacidadBodega(42);
+                                            }
+                                            else
+                                            {
+                                                Aeronave.BuscarAeronave(DatosNegocio.ListaAeronaves, item.IdAeronave).DisminuirCapacidadBodega(25);
+                                            }
+                                        }
+                                    }
+                                    item.ListaPasajeros.AddRange(listaPasajerosInt);
+
+                                    MessageBox.Show($"Se agregaron los pasajeros al Vuelo Internacional Nro: {item.NroVuelo}");
+                                }
+                            }
+                        }
+                    }
+             
+                }
+                dtgCargarPasajero.Rows.Clear();   
         }
 
         private void btnLimpiarListaPasajeros_Click(object sender, EventArgs e)
         {
-            listaPasajerosNac.Clear();
-            listaPasajerosInt.Clear();
-            dtgCargarPasajero.Rows.Clear();
+                listaPasajerosNac.Clear();
+                listaPasajerosInt.Clear();
+                dtgCargarPasajero.Rows.Clear();
         }
+        
     }
 }
 

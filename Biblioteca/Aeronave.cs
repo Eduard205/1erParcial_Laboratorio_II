@@ -48,6 +48,15 @@ namespace Biblioteca
 
         public bool TieneWifi { get => wifi; set => wifi = value; }
 
+        public void DisminuirCantidadAsientos(int cantidadAsientos)
+        {
+            CantidadAsientos =- cantidadAsientos;
+        }
+        public void DisminuirCapacidadBodega(int cantidad)
+        {
+            CapacidadBodega = -cantidad;
+        }
+
         /// <summary>
         /// Devuelve una lista de string con las matruclas de las Aeronaves
         /// </summary>
