@@ -13,14 +13,16 @@ namespace Biblioteca
         private int cantidadBaños;
         private int capacidadBodega;
         private static List<Aeronave> listaAeronaves;
+        private bool wifi;
 
         public Aeronave() { }
-        public Aeronave(string matricula, int cantidadAsientos, int cantidadBaños, int capacidadBodega)
+        public Aeronave(string matricula, int cantidadAsientos, int cantidadBaños, int capacidadBodega, bool wifi)
         {
-            this.matricula = matricula;
-            this.cantidadAsientos = cantidadAsientos;
-            this.cantidadBaños = cantidadBaños;
-            this.capacidadBodega = capacidadBodega;
+            this.Matricula = matricula;
+            this.CantidadAsientos = cantidadAsientos;
+            this.CantidadBaños = cantidadBaños;
+            this.CapacidadBodega = capacidadBodega;
+            this.TieneWifi = wifi;
         }
 
         public string Matricula
@@ -43,6 +45,9 @@ namespace Biblioteca
             get { return capacidadBodega; }
             set { capacidadBodega = value; }
         }
+
+        public bool TieneWifi { get => wifi; set => wifi = value; }
+
         /// <summary>
         /// Devuelve una lista de string con las matruclas de las Aeronaves
         /// </summary>

@@ -13,6 +13,7 @@ namespace Biblioteca
     }
     public class Pasajero
     {
+        private string nroVuelo;
         private string nombre;
         private string apellido;
         private int dni;
@@ -20,14 +21,15 @@ namespace Biblioteca
         private EEquipaje equipaje;
         private bool esPremium;
 
-        public Pasajero(string nombre, string apellido, int dni, int edad, EEquipaje equipaje, bool esPremium)
+        public Pasajero(string nroVuelo, string nombre, string apellido, int dni, int edad, EEquipaje equipaje, bool esPremium)
         {
-            this.nombre = nombre;
-            this.apellido = apellido;
-            this.dni = dni;
-            this.edad = edad;
-            this.equipaje = equipaje;
-            this.esPremium = esPremium;
+            this.NroVuelo = nroVuelo;
+            this.Nombre = nombre;
+            this.Apellido = apellido;
+            this.Dni = dni;
+            this.Edad = edad;
+            this.Equipaje = equipaje;
+            this.EsPremium = esPremium;
         }
 
         public string Nombre
@@ -60,5 +62,6 @@ namespace Biblioteca
             get { return esPremium; }
             set { esPremium = value; }
         }
+        public string NroVuelo { get => nroVuelo; set => nroVuelo = value; }
     }
 }

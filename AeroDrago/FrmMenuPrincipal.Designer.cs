@@ -35,10 +35,16 @@
             this.dtgVuelosNacionales = new System.Windows.Forms.DataGridView();
             this.gboxVuelosNacionales = new System.Windows.Forms.GroupBox();
             this.gBoxVenderPasajes = new System.Windows.Forms.GroupBox();
+            this.btnLimpiarListaPasajeros = new System.Windows.Forms.Button();
+            this.btnAgregarPasajerosAVuelo = new System.Windows.Forms.Button();
+            this.btnCerrarVentaPasaje = new System.Windows.Forms.Button();
             this.gBoxDatosVuelo = new System.Windows.Forms.GroupBox();
             this.radNacional = new System.Windows.Forms.RadioButton();
             this.radInternacional = new System.Windows.Forms.RadioButton();
             this.gBoxVueloInternacional = new System.Windows.Forms.GroupBox();
+            this.radNoWifiInt = new System.Windows.Forms.RadioButton();
+            this.radSiWifiInt = new System.Windows.Forms.RadioButton();
+            this.labWifiInt = new System.Windows.Forms.Label();
             this.radNoPremiumInt = new System.Windows.Forms.RadioButton();
             this.radSiPremiumInt = new System.Windows.Forms.RadioButton();
             this.btnCargarPasajeroInt = new System.Windows.Forms.Button();
@@ -56,6 +62,9 @@
             this.labNombreInt = new System.Windows.Forms.Label();
             this.labNroVueloInt = new System.Windows.Forms.Label();
             this.gBoxVueloNacional = new System.Windows.Forms.GroupBox();
+            this.radNoWifiNac = new System.Windows.Forms.RadioButton();
+            this.radSiWifiNac = new System.Windows.Forms.RadioButton();
+            this.labWifiNac = new System.Windows.Forms.Label();
             this.radNoPremiumNac = new System.Windows.Forms.RadioButton();
             this.radSiPremiumNac = new System.Windows.Forms.RadioButton();
             this.btnCargarPasajeroNac = new System.Windows.Forms.Button();
@@ -74,6 +83,7 @@
             this.labNroVueloNac = new System.Windows.Forms.Label();
             this.btnCerrarVentaPasajes = new System.Windows.Forms.Button();
             this.dtgCargarPasajero = new System.Windows.Forms.DataGridView();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -169,14 +179,53 @@
             // gBoxVenderPasajes
             // 
             this.gBoxVenderPasajes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.gBoxVenderPasajes.Controls.Add(this.btnLimpiarListaPasajeros);
+            this.gBoxVenderPasajes.Controls.Add(this.btnAgregarPasajerosAVuelo);
+            this.gBoxVenderPasajes.Controls.Add(this.btnCerrarVentaPasaje);
             this.gBoxVenderPasajes.Controls.Add(this.gBoxDatosVuelo);
             this.gBoxVenderPasajes.Controls.Add(this.dtgCargarPasajero);
             this.gBoxVenderPasajes.Location = new System.Drawing.Point(27, 22);
             this.gBoxVenderPasajes.Name = "gBoxVenderPasajes";
-            this.gBoxVenderPasajes.Size = new System.Drawing.Size(872, 392);
+            this.gBoxVenderPasajes.Size = new System.Drawing.Size(872, 422);
             this.gBoxVenderPasajes.TabIndex = 18;
             this.gBoxVenderPasajes.TabStop = false;
             this.gBoxVenderPasajes.Text = "Venta de Pasajes";
+            // 
+            // btnLimpiarListaPasajeros
+            // 
+            this.btnLimpiarListaPasajeros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnLimpiarListaPasajeros.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnLimpiarListaPasajeros.Location = new System.Drawing.Point(648, 221);
+            this.btnLimpiarListaPasajeros.Name = "btnLimpiarListaPasajeros";
+            this.btnLimpiarListaPasajeros.Size = new System.Drawing.Size(210, 31);
+            this.btnLimpiarListaPasajeros.TabIndex = 18;
+            this.btnLimpiarListaPasajeros.Text = "Limpiar lista de pasajeros";
+            this.btnLimpiarListaPasajeros.UseVisualStyleBackColor = false;
+            this.btnLimpiarListaPasajeros.Click += new System.EventHandler(this.btnLimpiarListaPasajeros_Click);
+            // 
+            // btnAgregarPasajerosAVuelo
+            // 
+            this.btnAgregarPasajerosAVuelo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnAgregarPasajerosAVuelo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAgregarPasajerosAVuelo.Location = new System.Drawing.Point(356, 221);
+            this.btnAgregarPasajerosAVuelo.Name = "btnAgregarPasajerosAVuelo";
+            this.btnAgregarPasajerosAVuelo.Size = new System.Drawing.Size(210, 31);
+            this.btnAgregarPasajerosAVuelo.TabIndex = 17;
+            this.btnAgregarPasajerosAVuelo.Text = "Agregar pasajeros al vuelo";
+            this.btnAgregarPasajerosAVuelo.UseVisualStyleBackColor = false;
+            this.btnAgregarPasajerosAVuelo.Click += new System.EventHandler(this.btnAgregarPasajerosAVuelo_Click);
+            // 
+            // btnCerrarVentaPasaje
+            // 
+            this.btnCerrarVentaPasaje.BackColor = System.Drawing.Color.IndianRed;
+            this.btnCerrarVentaPasaje.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCerrarVentaPasaje.Location = new System.Drawing.Point(741, 365);
+            this.btnCerrarVentaPasaje.Name = "btnCerrarVentaPasaje";
+            this.btnCerrarVentaPasaje.Size = new System.Drawing.Size(125, 34);
+            this.btnCerrarVentaPasaje.TabIndex = 16;
+            this.btnCerrarVentaPasaje.Text = "Cerrar";
+            this.btnCerrarVentaPasaje.UseVisualStyleBackColor = false;
+            this.btnCerrarVentaPasaje.Click += new System.EventHandler(this.btnCerrarVentaPasaje_Click);
             // 
             // gBoxDatosVuelo
             // 
@@ -220,6 +269,9 @@
             // 
             // gBoxVueloInternacional
             // 
+            this.gBoxVueloInternacional.Controls.Add(this.radNoWifiInt);
+            this.gBoxVueloInternacional.Controls.Add(this.radSiWifiInt);
+            this.gBoxVueloInternacional.Controls.Add(this.labWifiInt);
             this.gBoxVueloInternacional.Controls.Add(this.radNoPremiumInt);
             this.gBoxVueloInternacional.Controls.Add(this.radSiPremiumInt);
             this.gBoxVueloInternacional.Controls.Add(this.btnCargarPasajeroInt);
@@ -236,17 +288,52 @@
             this.gBoxVueloInternacional.Controls.Add(this.labApellidoInt);
             this.gBoxVueloInternacional.Controls.Add(this.labNombreInt);
             this.gBoxVueloInternacional.Controls.Add(this.labNroVueloInt);
-            this.gBoxVueloInternacional.Location = new System.Drawing.Point(3, 87);
+            this.gBoxVueloInternacional.Location = new System.Drawing.Point(6, 86);
             this.gBoxVueloInternacional.Name = "gBoxVueloInternacional";
             this.gBoxVueloInternacional.Size = new System.Drawing.Size(293, 263);
             this.gBoxVueloInternacional.TabIndex = 14;
             this.gBoxVueloInternacional.TabStop = false;
             this.gBoxVueloInternacional.Text = "Vuelo Internacional";
             // 
+            // radNoWifiInt
+            // 
+            this.radNoWifiInt.AutoSize = true;
+            this.radNoWifiInt.Location = new System.Drawing.Point(166, 16);
+            this.radNoWifiInt.Name = "radNoWifiInt";
+            this.radNoWifiInt.Size = new System.Drawing.Size(42, 19);
+            this.radNoWifiInt.TabIndex = 44;
+            this.radNoWifiInt.TabStop = true;
+            this.radNoWifiInt.Text = "NO";
+            this.radNoWifiInt.UseVisualStyleBackColor = true;
+            this.radNoWifiInt.CheckedChanged += new System.EventHandler(this.radNoWifiInt_CheckedChanged);
+            // 
+            // radSiWifiInt
+            // 
+            this.radSiWifiInt.AutoSize = true;
+            this.radSiWifiInt.Location = new System.Drawing.Point(124, 16);
+            this.radSiWifiInt.Name = "radSiWifiInt";
+            this.radSiWifiInt.Size = new System.Drawing.Size(36, 19);
+            this.radSiWifiInt.TabIndex = 43;
+            this.radSiWifiInt.TabStop = true;
+            this.radSiWifiInt.Text = "SI";
+            this.radSiWifiInt.UseVisualStyleBackColor = true;
+            this.radSiWifiInt.CheckedChanged += new System.EventHandler(this.radSiWifiInt_CheckedChanged);
+            // 
+            // labWifiInt
+            // 
+            this.labWifiInt.AutoSize = true;
+            this.labWifiInt.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.labWifiInt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labWifiInt.Location = new System.Drawing.Point(6, 18);
+            this.labWifiInt.Name = "labWifiInt";
+            this.labWifiInt.Size = new System.Drawing.Size(38, 18);
+            this.labWifiInt.TabIndex = 42;
+            this.labWifiInt.Text = "Wifi:";
+            // 
             // radNoPremiumInt
             // 
             this.radNoPremiumInt.AutoSize = true;
-            this.radNoPremiumInt.Location = new System.Drawing.Point(166, 178);
+            this.radNoPremiumInt.Location = new System.Drawing.Point(165, 202);
             this.radNoPremiumInt.Name = "radNoPremiumInt";
             this.radNoPremiumInt.Size = new System.Drawing.Size(42, 19);
             this.radNoPremiumInt.TabIndex = 41;
@@ -257,7 +344,7 @@
             // radSiPremiumInt
             // 
             this.radSiPremiumInt.AutoSize = true;
-            this.radSiPremiumInt.Location = new System.Drawing.Point(124, 178);
+            this.radSiPremiumInt.Location = new System.Drawing.Point(123, 202);
             this.radSiPremiumInt.Name = "radSiPremiumInt";
             this.radSiPremiumInt.Size = new System.Drawing.Size(36, 19);
             this.radSiPremiumInt.TabIndex = 40;
@@ -269,7 +356,7 @@
             // 
             this.btnCargarPasajeroInt.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnCargarPasajeroInt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnCargarPasajeroInt.Location = new System.Drawing.Point(6, 223);
+            this.btnCargarPasajeroInt.Location = new System.Drawing.Point(6, 224);
             this.btnCargarPasajeroInt.Name = "btnCargarPasajeroInt";
             this.btnCargarPasajeroInt.Size = new System.Drawing.Size(125, 34);
             this.btnCargarPasajeroInt.TabIndex = 39;
@@ -279,7 +366,7 @@
             // 
             // txtEdadInt
             // 
-            this.txtEdadInt.Location = new System.Drawing.Point(123, 124);
+            this.txtEdadInt.Location = new System.Drawing.Point(122, 148);
             this.txtEdadInt.Name = "txtEdadInt";
             this.txtEdadInt.Size = new System.Drawing.Size(163, 21);
             this.txtEdadInt.TabIndex = 37;
@@ -287,7 +374,7 @@
             // cboEquipajeInt
             // 
             this.cboEquipajeInt.FormattingEnabled = true;
-            this.cboEquipajeInt.Location = new System.Drawing.Point(123, 150);
+            this.cboEquipajeInt.Location = new System.Drawing.Point(122, 174);
             this.cboEquipajeInt.Name = "cboEquipajeInt";
             this.cboEquipajeInt.Size = new System.Drawing.Size(163, 23);
             this.cboEquipajeInt.TabIndex = 34;
@@ -295,14 +382,14 @@
             // 
             // txtDniInt
             // 
-            this.txtDniInt.Location = new System.Drawing.Point(123, 97);
+            this.txtDniInt.Location = new System.Drawing.Point(122, 121);
             this.txtDniInt.Name = "txtDniInt";
             this.txtDniInt.Size = new System.Drawing.Size(163, 21);
             this.txtDniInt.TabIndex = 36;
             // 
             // txtApellidoInt
             // 
-            this.txtApellidoInt.Location = new System.Drawing.Point(123, 70);
+            this.txtApellidoInt.Location = new System.Drawing.Point(122, 94);
             this.txtApellidoInt.Name = "txtApellidoInt";
             this.txtApellidoInt.Size = new System.Drawing.Size(163, 21);
             this.txtApellidoInt.TabIndex = 35;
@@ -312,7 +399,7 @@
             this.labEquipajeInt.AutoSize = true;
             this.labEquipajeInt.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labEquipajeInt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labEquipajeInt.Location = new System.Drawing.Point(6, 151);
+            this.labEquipajeInt.Location = new System.Drawing.Point(5, 175);
             this.labEquipajeInt.Name = "labEquipajeInt";
             this.labEquipajeInt.Size = new System.Drawing.Size(69, 18);
             this.labEquipajeInt.TabIndex = 30;
@@ -320,7 +407,7 @@
             // 
             // txtNombreInt
             // 
-            this.txtNombreInt.Location = new System.Drawing.Point(123, 44);
+            this.txtNombreInt.Location = new System.Drawing.Point(122, 68);
             this.txtNombreInt.Name = "txtNombreInt";
             this.txtNombreInt.Size = new System.Drawing.Size(163, 21);
             this.txtNombreInt.TabIndex = 32;
@@ -328,7 +415,7 @@
             // cboNroVueloInt
             // 
             this.cboNroVueloInt.FormattingEnabled = true;
-            this.cboNroVueloInt.Location = new System.Drawing.Point(123, 17);
+            this.cboNroVueloInt.Location = new System.Drawing.Point(122, 41);
             this.cboNroVueloInt.Name = "cboNroVueloInt";
             this.cboNroVueloInt.Size = new System.Drawing.Size(163, 23);
             this.cboNroVueloInt.TabIndex = 31;
@@ -339,7 +426,7 @@
             this.labClasePremiumInt.AutoSize = true;
             this.labClasePremiumInt.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labClasePremiumInt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labClasePremiumInt.Location = new System.Drawing.Point(6, 178);
+            this.labClasePremiumInt.Location = new System.Drawing.Point(5, 202);
             this.labClasePremiumInt.Name = "labClasePremiumInt";
             this.labClasePremiumInt.Size = new System.Drawing.Size(110, 18);
             this.labClasePremiumInt.TabIndex = 33;
@@ -350,7 +437,7 @@
             this.labEdadInt.AutoSize = true;
             this.labEdadInt.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labEdadInt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labEdadInt.Location = new System.Drawing.Point(6, 125);
+            this.labEdadInt.Location = new System.Drawing.Point(5, 149);
             this.labEdadInt.Name = "labEdadInt";
             this.labEdadInt.Size = new System.Drawing.Size(45, 18);
             this.labEdadInt.TabIndex = 29;
@@ -361,7 +448,7 @@
             this.labDniInt.AutoSize = true;
             this.labDniInt.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labDniInt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labDniInt.Location = new System.Drawing.Point(6, 99);
+            this.labDniInt.Location = new System.Drawing.Point(5, 123);
             this.labDniInt.Name = "labDniInt";
             this.labDniInt.Size = new System.Drawing.Size(35, 18);
             this.labDniInt.TabIndex = 27;
@@ -372,7 +459,7 @@
             this.labApellidoInt.AutoSize = true;
             this.labApellidoInt.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labApellidoInt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labApellidoInt.Location = new System.Drawing.Point(6, 73);
+            this.labApellidoInt.Location = new System.Drawing.Point(5, 97);
             this.labApellidoInt.Name = "labApellidoInt";
             this.labApellidoInt.Size = new System.Drawing.Size(66, 18);
             this.labApellidoInt.TabIndex = 26;
@@ -383,7 +470,7 @@
             this.labNombreInt.AutoSize = true;
             this.labNombreInt.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labNombreInt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labNombreInt.Location = new System.Drawing.Point(6, 46);
+            this.labNombreInt.Location = new System.Drawing.Point(5, 70);
             this.labNombreInt.Name = "labNombreInt";
             this.labNombreInt.Size = new System.Drawing.Size(63, 18);
             this.labNombreInt.TabIndex = 25;
@@ -394,7 +481,7 @@
             this.labNroVueloInt.AutoSize = true;
             this.labNroVueloInt.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labNroVueloInt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labNroVueloInt.Location = new System.Drawing.Point(6, 20);
+            this.labNroVueloInt.Location = new System.Drawing.Point(5, 44);
             this.labNroVueloInt.Name = "labNroVueloInt";
             this.labNroVueloInt.Size = new System.Drawing.Size(96, 18);
             this.labNroVueloInt.TabIndex = 24;
@@ -402,6 +489,9 @@
             // 
             // gBoxVueloNacional
             // 
+            this.gBoxVueloNacional.Controls.Add(this.radNoWifiNac);
+            this.gBoxVueloNacional.Controls.Add(this.radSiWifiNac);
+            this.gBoxVueloNacional.Controls.Add(this.labWifiNac);
             this.gBoxVueloNacional.Controls.Add(this.radNoPremiumNac);
             this.gBoxVueloNacional.Controls.Add(this.radSiPremiumNac);
             this.gBoxVueloNacional.Controls.Add(this.btnCargarPasajeroNac);
@@ -418,17 +508,52 @@
             this.gBoxVueloNacional.Controls.Add(this.labApellidoNac);
             this.gBoxVueloNacional.Controls.Add(this.labNombreNac);
             this.gBoxVueloNacional.Controls.Add(this.labNroVueloNac);
-            this.gBoxVueloNacional.Location = new System.Drawing.Point(4, 48);
+            this.gBoxVueloNacional.Location = new System.Drawing.Point(6, 47);
             this.gBoxVueloNacional.Name = "gBoxVueloNacional";
             this.gBoxVueloNacional.Size = new System.Drawing.Size(293, 263);
             this.gBoxVueloNacional.TabIndex = 13;
             this.gBoxVueloNacional.TabStop = false;
             this.gBoxVueloNacional.Text = "Vuelo Nacional";
             // 
+            // radNoWifiNac
+            // 
+            this.radNoWifiNac.AutoSize = true;
+            this.radNoWifiNac.Location = new System.Drawing.Point(166, 16);
+            this.radNoWifiNac.Name = "radNoWifiNac";
+            this.radNoWifiNac.Size = new System.Drawing.Size(42, 19);
+            this.radNoWifiNac.TabIndex = 47;
+            this.radNoWifiNac.TabStop = true;
+            this.radNoWifiNac.Text = "NO";
+            this.radNoWifiNac.UseVisualStyleBackColor = true;
+            this.radNoWifiNac.CheckedChanged += new System.EventHandler(this.radNoWifiNac_CheckedChanged);
+            // 
+            // radSiWifiNac
+            // 
+            this.radSiWifiNac.AutoSize = true;
+            this.radSiWifiNac.Location = new System.Drawing.Point(124, 16);
+            this.radSiWifiNac.Name = "radSiWifiNac";
+            this.radSiWifiNac.Size = new System.Drawing.Size(36, 19);
+            this.radSiWifiNac.TabIndex = 46;
+            this.radSiWifiNac.TabStop = true;
+            this.radSiWifiNac.Text = "SI";
+            this.radSiWifiNac.UseVisualStyleBackColor = true;
+            this.radSiWifiNac.CheckedChanged += new System.EventHandler(this.radSiWifiNac_CheckedChanged);
+            // 
+            // labWifiNac
+            // 
+            this.labWifiNac.AutoSize = true;
+            this.labWifiNac.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.labWifiNac.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labWifiNac.Location = new System.Drawing.Point(6, 18);
+            this.labWifiNac.Name = "labWifiNac";
+            this.labWifiNac.Size = new System.Drawing.Size(38, 18);
+            this.labWifiNac.TabIndex = 45;
+            this.labWifiNac.Text = "Wifi:";
+            // 
             // radNoPremiumNac
             // 
             this.radNoPremiumNac.AutoSize = true;
-            this.radNoPremiumNac.Location = new System.Drawing.Point(163, 175);
+            this.radNoPremiumNac.Location = new System.Drawing.Point(163, 201);
             this.radNoPremiumNac.Name = "radNoPremiumNac";
             this.radNoPremiumNac.Size = new System.Drawing.Size(42, 19);
             this.radNoPremiumNac.TabIndex = 43;
@@ -439,7 +564,7 @@
             // radSiPremiumNac
             // 
             this.radSiPremiumNac.AutoSize = true;
-            this.radSiPremiumNac.Location = new System.Drawing.Point(123, 176);
+            this.radSiPremiumNac.Location = new System.Drawing.Point(123, 202);
             this.radSiPremiumNac.Name = "radSiPremiumNac";
             this.radSiPremiumNac.Size = new System.Drawing.Size(36, 19);
             this.radSiPremiumNac.TabIndex = 42;
@@ -451,7 +576,7 @@
             // 
             this.btnCargarPasajeroNac.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnCargarPasajeroNac.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnCargarPasajeroNac.Location = new System.Drawing.Point(6, 222);
+            this.btnCargarPasajeroNac.Location = new System.Drawing.Point(5, 222);
             this.btnCargarPasajeroNac.Name = "btnCargarPasajeroNac";
             this.btnCargarPasajeroNac.Size = new System.Drawing.Size(125, 34);
             this.btnCargarPasajeroNac.TabIndex = 25;
@@ -461,7 +586,7 @@
             // 
             // txtEdadNac
             // 
-            this.txtEdadNac.Location = new System.Drawing.Point(123, 121);
+            this.txtEdadNac.Location = new System.Drawing.Point(123, 147);
             this.txtEdadNac.Name = "txtEdadNac";
             this.txtEdadNac.Size = new System.Drawing.Size(163, 21);
             this.txtEdadNac.TabIndex = 23;
@@ -469,7 +594,7 @@
             // cboEquipajeNac
             // 
             this.cboEquipajeNac.FormattingEnabled = true;
-            this.cboEquipajeNac.Location = new System.Drawing.Point(123, 147);
+            this.cboEquipajeNac.Location = new System.Drawing.Point(123, 173);
             this.cboEquipajeNac.Name = "cboEquipajeNac";
             this.cboEquipajeNac.Size = new System.Drawing.Size(163, 23);
             this.cboEquipajeNac.TabIndex = 21;
@@ -477,14 +602,14 @@
             // 
             // txtDniNac
             // 
-            this.txtDniNac.Location = new System.Drawing.Point(123, 95);
+            this.txtDniNac.Location = new System.Drawing.Point(123, 121);
             this.txtDniNac.Name = "txtDniNac";
             this.txtDniNac.Size = new System.Drawing.Size(163, 21);
             this.txtDniNac.TabIndex = 22;
             // 
             // txtApellidoNac
             // 
-            this.txtApellidoNac.Location = new System.Drawing.Point(123, 69);
+            this.txtApellidoNac.Location = new System.Drawing.Point(123, 95);
             this.txtApellidoNac.Name = "txtApellidoNac";
             this.txtApellidoNac.Size = new System.Drawing.Size(163, 21);
             this.txtApellidoNac.TabIndex = 21;
@@ -494,7 +619,7 @@
             this.labEquipajeNac.AutoSize = true;
             this.labEquipajeNac.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labEquipajeNac.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labEquipajeNac.Location = new System.Drawing.Point(6, 150);
+            this.labEquipajeNac.Location = new System.Drawing.Point(6, 176);
             this.labEquipajeNac.Name = "labEquipajeNac";
             this.labEquipajeNac.Size = new System.Drawing.Size(69, 18);
             this.labEquipajeNac.TabIndex = 19;
@@ -502,7 +627,7 @@
             // 
             // txtNombreNac
             // 
-            this.txtNombreNac.Location = new System.Drawing.Point(123, 44);
+            this.txtNombreNac.Location = new System.Drawing.Point(123, 70);
             this.txtNombreNac.Name = "txtNombreNac";
             this.txtNombreNac.Size = new System.Drawing.Size(163, 21);
             this.txtNombreNac.TabIndex = 20;
@@ -510,7 +635,7 @@
             // cboNroVueloNac
             // 
             this.cboNroVueloNac.FormattingEnabled = true;
-            this.cboNroVueloNac.Location = new System.Drawing.Point(123, 17);
+            this.cboNroVueloNac.Location = new System.Drawing.Point(123, 43);
             this.cboNroVueloNac.Name = "cboNroVueloNac";
             this.cboNroVueloNac.Size = new System.Drawing.Size(163, 23);
             this.cboNroVueloNac.TabIndex = 19;
@@ -521,7 +646,7 @@
             this.labClasePremiumNac.AutoSize = true;
             this.labClasePremiumNac.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labClasePremiumNac.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labClasePremiumNac.Location = new System.Drawing.Point(6, 175);
+            this.labClasePremiumNac.Location = new System.Drawing.Point(6, 201);
             this.labClasePremiumNac.Name = "labClasePremiumNac";
             this.labClasePremiumNac.Size = new System.Drawing.Size(110, 18);
             this.labClasePremiumNac.TabIndex = 20;
@@ -532,7 +657,7 @@
             this.labEdadNac.AutoSize = true;
             this.labEdadNac.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labEdadNac.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labEdadNac.Location = new System.Drawing.Point(6, 125);
+            this.labEdadNac.Location = new System.Drawing.Point(6, 151);
             this.labEdadNac.Name = "labEdadNac";
             this.labEdadNac.Size = new System.Drawing.Size(45, 18);
             this.labEdadNac.TabIndex = 18;
@@ -543,7 +668,7 @@
             this.labDniNac.AutoSize = true;
             this.labDniNac.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labDniNac.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labDniNac.Location = new System.Drawing.Point(6, 98);
+            this.labDniNac.Location = new System.Drawing.Point(6, 124);
             this.labDniNac.Name = "labDniNac";
             this.labDniNac.Size = new System.Drawing.Size(35, 18);
             this.labDniNac.TabIndex = 14;
@@ -554,7 +679,7 @@
             this.labApellidoNac.AutoSize = true;
             this.labApellidoNac.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labApellidoNac.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labApellidoNac.Location = new System.Drawing.Point(6, 71);
+            this.labApellidoNac.Location = new System.Drawing.Point(6, 97);
             this.labApellidoNac.Name = "labApellidoNac";
             this.labApellidoNac.Size = new System.Drawing.Size(66, 18);
             this.labApellidoNac.TabIndex = 13;
@@ -565,7 +690,7 @@
             this.labNombreNac.AutoSize = true;
             this.labNombreNac.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labNombreNac.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labNombreNac.Location = new System.Drawing.Point(6, 45);
+            this.labNombreNac.Location = new System.Drawing.Point(6, 71);
             this.labNombreNac.Name = "labNombreNac";
             this.labNombreNac.Size = new System.Drawing.Size(63, 18);
             this.labNombreNac.TabIndex = 12;
@@ -576,7 +701,7 @@
             this.labNroVueloNac.AutoSize = true;
             this.labNroVueloNac.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labNroVueloNac.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labNroVueloNac.Location = new System.Drawing.Point(6, 18);
+            this.labNroVueloNac.Location = new System.Drawing.Point(6, 44);
             this.labNroVueloNac.Name = "labNroVueloNac";
             this.labNroVueloNac.Size = new System.Drawing.Size(96, 18);
             this.labNroVueloNac.TabIndex = 0;
@@ -592,7 +717,6 @@
             this.btnCerrarVentaPasajes.TabIndex = 16;
             this.btnCerrarVentaPasajes.Text = "Cerrar";
             this.btnCerrarVentaPasajes.UseVisualStyleBackColor = false;
-            this.btnCerrarVentaPasajes.Click += new System.EventHandler(this.btnCerrarVentaPasajes_Click);
             // 
             // dtgCargarPasajero
             // 
@@ -606,18 +730,24 @@
             this.dtgCargarPasajero.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dtgCargarPasajero.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgCargarPasajero.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column4,
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.Column1,
             this.Column2,
             this.Column3});
-            this.dtgCargarPasajero.Location = new System.Drawing.Point(364, 27);
+            this.dtgCargarPasajero.Location = new System.Drawing.Point(356, 27);
             this.dtgCargarPasajero.Name = "dtgCargarPasajero";
             this.dtgCargarPasajero.RowHeadersVisible = false;
             this.dtgCargarPasajero.RowTemplate.Height = 25;
-            this.dtgCargarPasajero.Size = new System.Drawing.Size(472, 187);
+            this.dtgCargarPasajero.Size = new System.Drawing.Size(502, 187);
             this.dtgCargarPasajero.TabIndex = 15;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "NroVuelo";
+            this.Column4.Name = "Column4";
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -814,12 +944,6 @@
         private Button btnCargarPasajeroInt;
         private Button btnCargarPasajeroNac;
         private DataGridView dtgCargarPasajero;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
         private Button btnCerrarVentaPasajes;
         private RadioButton radInternacional;
         private RadioButton radNacional;
@@ -827,5 +951,21 @@
         private RadioButton radSiPremiumInt;
         private RadioButton radNoPremiumNac;
         private RadioButton radSiPremiumNac;
+        private RadioButton radNoWifiInt;
+        private RadioButton radSiWifiInt;
+        private Label labWifiInt;
+        private RadioButton radNoWifiNac;
+        private RadioButton radSiWifiNac;
+        private Label labWifiNac;
+        private Button btnCerrarVentaPasaje;
+        private DataGridViewTextBoxColumn Column4;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private Button btnAgregarPasajerosAVuelo;
+        private Button btnLimpiarListaPasajeros;
     }
 }

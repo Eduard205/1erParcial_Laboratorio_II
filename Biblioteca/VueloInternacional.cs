@@ -11,7 +11,7 @@ namespace Biblioteca
     {
         private EOrigenNacional origenNacional;
         private EDestinoInternacional destinoInternacional;
-        private List<Pasajero> listaPasajeros;
+        private List<Pasajero> listaPasajeros = new List<Pasajero>();
 
         public List<Pasajero> ListaPasajeros { get => listaPasajeros; set => listaPasajeros = value; }
         public EOrigenNacional OrigenNacional { get => origenNacional; set => origenNacional = value; }
@@ -23,7 +23,7 @@ namespace Biblioteca
         {
             this.OrigenNacional = origenNacional;
             this.DestinoInternacional = destinoInternacional;
-            listaPasajeros.AddRange(listaPasajeros);
+            ListaPasajeros.AddRange(listaPasajeros);
             this.DuracionVuelo = numRandom.Next(8, 12);
 
             DateTime horaPartidaAux = RandomDiaHora();

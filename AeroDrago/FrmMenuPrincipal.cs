@@ -21,6 +21,13 @@ namespace AeroDrago
         private string apellido;
         private bool esPremium;
         private EEquipaje equipaje;
+        private string NroVuelo;
+        private List<Pasajero> listaPasajerosNac = new List<Pasajero>();
+        private List<Pasajero> listaPasajerosInt = new List<Pasajero>();
+        //private List<Pasajero> listaPasajerosNacAux = new List<Pasajero>();
+        //private List<Pasajero> listaPasajerosIntAux = new List<Pasajero>();
+        public List<VueloNacional> listaVuelosNac = new List<VueloNacional>();
+        public List<VueloInternacional> listaVuelosInt = new List<VueloInternacional>();
 
         public int Dni { get => dni; set => dni = value; }
         public int Edad { get => edad; set => edad = value; }
@@ -33,6 +40,8 @@ namespace AeroDrago
         {
             InitializeComponent();
             listaVuelos = DatosNegocio.ListaVuelos;
+            listaVuelosNac = DatosNegocio.MostrarVuelosNacional;
+            listaVuelosInt = DatosNegocio.MostrarVuelosInternacional;
         }
         public FrmMenuPrincipal(Usuario nombre) : this()
         {
@@ -61,9 +70,6 @@ namespace AeroDrago
 
             cboEquipajeNac.DataSource = Enum.GetValues(typeof(EEquipaje));
             cboEquipajeInt.DataSource = Enum.GetValues(typeof(EEquipaje));
-            cboNroVueloInt.DataSource = DatosNegocio.ListarNroVuelosInternacional;
-            cboNroVueloNac.DataSource = DatosNegocio.ListarNroVuelosNacional;
-
             cboEquipajeNac.SelectedItem = null;
             cboEquipajeInt.SelectedItem = null;
             cboNroVueloInt.SelectedItem = null;
@@ -137,7 +143,8 @@ namespace AeroDrago
                         (!Regex.IsMatch(txtNombreNac.Text, patron)) &&
                         (!Regex.IsMatch(txtApellidoNac.Text, patron)) &&
                         (Dni > 0 && Edad >= 1))
-                    {  
+                    {
+                        NroVuelo = (string)cboNroVueloNac.SelectedItem;
                         Nombre = txtNombreNac.Text;
                         Apellido = txtApellidoNac.Text;
                         Dni = int.Parse(txtDniNac.Text);
@@ -153,7 +160,10 @@ namespace AeroDrago
                            EsPremium = false;
                         }
                        
-                        dtgCargarPasajero.Rows.Add(Nombre, Apellido, Dni, Edad, Equipaje, EsPremium);
+                        dtgCargarPasajero.Rows.Add(NroVuelo,Nombre, Apellido, Dni, Edad, Equipaje, EsPremium);
+                       
+                        listaPasajerosNac.Add(new Pasajero(NroVuelo,Nombre, Apellido, Dni, Edad, Equipaje, EsPremium));
+                        LimpiarCamposVentaVueloNacional();
                     }
                     else
                     {
@@ -189,6 +199,7 @@ namespace AeroDrago
                         (!Regex.IsMatch(txtApellidoInt.Text, patron)) &&
                         (Dni > 0 && Edad >= 1))
                     {
+                        NroVuelo = (string)cboNroVueloInt.SelectedItem;
                         Nombre = txtNombreInt.Text;
                         Apellido = txtApellidoInt.Text;
                         Dni = int.Parse(txtDniInt.Text);
@@ -204,7 +215,9 @@ namespace AeroDrago
                             EsPremium = false;
                         }
 
-                        dtgCargarPasajero.Rows.Add(Nombre, Apellido, Dni, Edad, Equipaje, EsPremium);
+                        dtgCargarPasajero.Rows.Add(NroVuelo,Nombre, Apellido, Dni, Edad, Equipaje, EsPremium);
+                        listaPasajerosInt.Add(new Pasajero(NroVuelo,Nombre, Apellido, Dni, Edad, Equipaje, EsPremium));
+                        LimpiarCamposVentaVueloInternacional();
                     }
                     else
                     {
@@ -220,10 +233,6 @@ namespace AeroDrago
             {
                 throw new Exception("Fallo al agregar al Pasajero");
             }
-        }
-        private void btnCerrarVentaPasajes_Click(object sender, EventArgs e)
-        {
-            gBoxVenderPasajes.Visible = false;
         }
 
         private void cboNroVueloInt_KeyPress(object sender, KeyPressEventArgs e)
@@ -295,5 +304,131 @@ namespace AeroDrago
                 radSiPremiumNac.Checked = false;
             }
         }
+
+        private void radSiWifiInt_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radSiWifiInt.Checked == true)
+            {
+                radNoWifiInt.Checked = false;
+
+                cboNroVueloInt.DataSource = DatosNegocio.ListarNroVuelosInternacionalConWifi();
+            }
+        }
+
+        private void radNoWifiInt_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radNoWifiInt.Checked == true)
+            {
+                radSiWifiInt.Checked = false;
+
+                cboNroVueloInt.DataSource = DatosNegocio.ListarNroVuelosInternacionalSinWifi();
+            }
+        }
+
+        private void radSiWifiNac_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radSiWifiNac.Checked == true)
+            {
+                radNoWifiNac.Checked = false;
+
+                cboNroVueloNac.DataSource = DatosNegocio.ListarNroVuelosNacionalConWifi();
+            }
+        }
+
+        private void radNoWifiNac_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radNoWifiNac.Checked == true)
+            {
+                radSiWifiNac.Checked = false;
+
+                cboNroVueloNac.DataSource = DatosNegocio.ListarNroVuelosNacionalSinWifi();
+            }
+        }
+
+        private void btnCerrarVentaPasaje_Click(object sender, EventArgs e)
+        {
+            gBoxVenderPasajes.Visible = false;
+            dtgCargarPasajero.Rows.Clear();
+            LimpiarCamposVentaVueloInternacional();
+            LimpiarCamposVentaVueloNacional();
+            
+        }
+
+        public void LimpiarCamposVentaVueloInternacional()
+        {
+            txtNombreInt.Text = null;
+            txtApellidoInt.Text = null;
+            txtDniInt.Text = null;
+            txtEdadInt.Text = null;
+            cboEquipajeInt.SelectedItem = null;
+            cboNroVueloInt.SelectedItem = null;
+            radSiPremiumInt.Checked = false;
+            radNoPremiumInt.Checked = false;
+            radSiWifiInt.Checked = false;
+            radNoWifiInt.Checked = false;
+        }
+        public void LimpiarCamposVentaVueloNacional()
+        {
+            txtNombreNac.Text = null;
+            txtApellidoNac.Text = null;
+            txtDniNac.Text = null;
+            txtEdadNac.Text = null;
+            cboEquipajeNac.SelectedItem = null;
+            cboNroVueloNac.SelectedItem = null;
+            radSiPremiumNac.Checked = false;
+            radNoPremiumNac.Checked = false;
+            radSiWifiNac.Checked = false;
+            radNoWifiNac.Checked = false;
+        }
+
+        private void btnAgregarPasajerosAVuelo_Click(object sender, EventArgs e)
+        {
+
+            if (listaPasajerosNac.Count > 0 && listaPasajerosNac is not null)
+            {
+                foreach (VueloNacional item in listaVuelosNac)
+                {
+                    foreach (Pasajero item2 in listaPasajerosNac)
+                    {
+                        if (item.NroVuelo == item2.NroVuelo)
+                        { 
+                            item.ListaPasajeros.AddRange(listaPasajerosNac);
+                            MessageBox.Show($"Se agregaron los pasajeros al Vuelo Nacional Nro: {item.NroVuelo}");
+                        }
+                    }
+                }
+            }
+
+            if (listaPasajerosInt.Count > 0 && listaPasajerosInt is not null)
+            {
+                foreach (VueloInternacional item in listaVuelosInt)
+                {
+                    foreach (Pasajero item2 in listaPasajerosInt)
+                    {
+                        if (item.NroVuelo == item2.NroVuelo)
+                        {
+                            item.ListaPasajeros.AddRange(listaPasajerosInt);
+
+                            MessageBox.Show($"Se agregaron los pasajeros al Vuelo Internacional Nro: {item.NroVuelo}");
+                        }
+                    }
+                }
+                //listaPasajerosInt.Clear();
+                //dtgCargarPasajero.Rows.Clear();
+            }
+
+            if (listaPasajerosNac.Count == 0 && listaPasajerosInt.Count == 0)
+            {
+                MessageBox.Show("Aún no ha cargado pasajeros");
+            }
+        }
+
+        private void btnLimpiarListaPasajeros_Click(object sender, EventArgs e)
+        {
+            listaPasajerosNac.Clear();
+            listaPasajerosInt.Clear();
+            dtgCargarPasajero.Rows.Clear();
+        }
     }
 }
+
